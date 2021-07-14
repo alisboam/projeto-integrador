@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/produto.css" />
+    <title>produto</title>
+  </head>
+  <body>
+    <header><%- include("./partials/header") %></header>
+    <main class="container">
+      <section class="container-produto">
+        <div class="container-desktop">
+        <div class="desktop">
+          <div class="produto">
+            <div class="img-desktop">
+              <img class="img-produto" src="/images/jogo2.jpg" alt="" />
+            </div>
+            <div class="preco-desktop">
+              <h1>Jogo A</h1>
+              <p class="desc-curta">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              </p>
+              <p class="preco">R$ 29,90</p>
+              <button class="buy" type="submit">Comprar</button>
+              <form class="frete" action="" method="POST">
+                <div class="cep">
+                <label for="frete">Calcule o frete</label>
+                <div class="frete">
+                  <input
+                    type="text"
+                    name="frete"
+                    id="frete"
+                    placeholder="00000-000"
+                  />
+                  <button class="frete" type="submit">ok</button>
+                </div>
+              </div>
+              </form>
+            </div>
+            <div class="info">
+              <span class="titulo-info">Info</span>
+              <div class="info-box">
+                <span
+                  ><i class="fa fa-users" aria-hidden="true"></i> 2-4
+                  jogadores</span
+                >
+              </div>
+              <div class="info-box">
+                <span>
+                  <i class="fa fa-thumbs-up" aria-hidden="true"></i> 12 anos
+                  +</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="descricao">
+          <p class="titulo-info">Descricao</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+            ratione quia, voluptatum, ullam quis nulla, quam id corporis impedit
+            veritatis minus at molestiae ex. Placeat molestias nulla quasi sint
+            laborum. ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+            ratione quia, voluptatum, ullam quis nulla, quam id corporis impedit
+            veritatis minus at molestiae ex. Placeat molestias nulla quasi sint
+            laborum.
+          </p>
+        </div>
+        </div>
+      </section>
+      <section>
+        <%- include("./partials/carrossel") %>
+      </section>
+    </main>
+    <footer><%- include("./partials/footer") %></footer>
+  </body>
+</html>

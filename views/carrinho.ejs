@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/carrinho.css" />
+    <title>Meu Carrinho</title>
+</head>
+<body>
+    <header><%- include("./partials/header") %></header>
+	<div class="container">
+		<h1>Carrinho</h1>
+		<div class="cart">
+			<div class="products">
+				<div class="product">
+					<img src="/images/jogo2.jpg">
+					<div class="product-info">
+						<h3 class="product-name">Jogo A</h3>
+						<h4 class="product-price">R$ 129,90</h4>
+						<p class="product-quantity">Qnt: <input value="1" name="">
+							<button class="product-remove" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>Remover</button>
+					</div>
+				</div>
+				<div class="product">
+					<img src="/images/jogo10.jpg">
+					<div class="product-info">
+						<h3 class="product-name">Jogo B</h3>
+						<h4 class="product-price">R$ 109,90</h4>
+						<p class="product-quantity">Qnt: <input value="1" name="">
+							<button class="product-remove" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>Remover</button>
+					</div>
+				</div>
+			</div>
+			<div class="cart-total">
+				<p>
+					<span>Preço Total</span>
+					<span>R$ 239,80</span>
+				</p>
+				<p>
+					<span>Numero de Itens</span>
+					<span>2</span>
+				</p>
+				<a href="/checkout">Prosseguir</a>
+			</div>
+		</div>
+	</div>
+	<footer><%- include("./partials/footer") %></footer>
+	</body>
+	</html>

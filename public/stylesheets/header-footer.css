@@ -1,0 +1,285 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 10%;
+  height: 10%;
+}
+
+.myaccount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0b0230;
+  padding: 20px 40px;
+}
+
+/* barra de pesquisa */
+
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.searchbar {
+  background-color: #fff;
+  border: solid 1px #fd8415;
+  color: #0b0230;
+  font-size: 16px;
+  display: block;
+  padding: 10px 100px 10px;
+  outline: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-right: 0;
+  border-right: none;
+}
+
+.search-button {
+  background-color: #fff;
+  border: solid 1px #fd8415;
+  font-size: 16px;
+  display: block;
+  outline: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-left: 0;
+  border-left: none;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* icones login */
+
+.icon-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-header i {
+  color: #fd8415;
+  font-size: 25px;
+}
+
+.myaccount a {
+  color: #fff;
+  font-size: 16px;
+  padding: 2px 40px;
+}
+
+.login {
+  display: flex;
+}
+
+/* barra nav */
+
+nav #icon {
+  display: none;
+}
+
+nav ul {
+  list-style-type: none;
+  background-color: #fd8415;
+  text-align: center;
+  padding: 10px 100px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b0230;
+}
+
+.nav-link:hover {
+  outline: none;
+  color: #6775f3;
+}
+
+/* footer */
+
+footer {
+  background-color: #0b0230;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  padding: 20px 40px;
+}
+
+div.footer-colunas {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo-about {
+  display: flex;
+justify-content: center;
+}
+
+p.footer-about {
+  width: 50%;
+  padding-left: 40px;
+}
+
+footer a {
+  color: #fff;
+  padding: 2px 0;
+}
+.menu-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.social-media {
+  flex-direction: column;
+}
+
+.social-media i {
+  font-size: 16px;
+  padding: 0 8px 0 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 50px;
+}
+.icon-footer {
+  filter: invert(100%);
+  width: 10%;
+}
+
+img.logo-footer {
+  width: 100px;
+  height: 110px;
+}
+
+.menu-colunas {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .icon-text {
+    display: none;
+  }
+
+  .myaccount {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+
+  .myaccount a {
+    padding: 10px 5px;
+  }
+
+  .search-container {
+    width: 50%;
+    position: relative;
+    order: 1;
+    justify-content: flex-end;
+  }
+
+  .logo {
+    width: 90px;
+    height: 100px;
+    margin: 5px;
+  }
+
+  .searchbar {
+    width: 200px;
+    font-size: 16px;
+    display: block;
+    padding: 10px 20px;
+    display: flex;
+  }
+
+  .barra {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  form {
+    order: 1;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .searchglass {
+    background-color: red;
+    padding: 8px 0px 0 100px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    display: flex;
+  }
+
+  .icon-header {
+    padding: 0 20px;
+  }
+
+  #icon {
+    color: #fd8415;
+    font-size: 30px;
+    line-height: 80px;
+    justify-content: flex-start;
+    display: flex;
+    margin-left: 10px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  footer {
+    padding: 10px 20px;
+  }
+  
+  .footer-colunas {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .logo-footer {
+    width: 80px;
+    height: 90px;
+    margin-right: 10px;
+  }
+  .menu-colunas {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer-links {
+    margin: 0 5px;
+  }
+
+  .footer-about {
+    width: auto;
+  }
+}

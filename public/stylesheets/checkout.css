@@ -1,0 +1,65 @@
+.container {
+  max-width: 960px;
+}
+
+.container h2 {
+  color: #031294;
+}
+
+  .form-check{
+     margin: 20px;
+  }
+
+  main {
+
+    border: 1px solid #c4c4c4;
+    border-radius: 20px;
+    padding: 20px;
+    color: #031294;
+   
+
+   
+  }
+  
+  
+   .form-control {
+    background-color: #ddd6d6;
+    border-radius: 20px;
+    border: 1px solid #c4c4c4;
+    padding: 5px 50px;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+  }
+
+
+
+
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+  }
+  
+
+
+  .btn {
+    text-align: center;
+    background-color: #fd8415;
+    border-radius: 20px;
+    color: #0b0230;
+    border: 1px solid #0b0230;
+    padding: 10px 30px;
+    font-weight: 600;
+  
+  }
+  
+  button:hover {
+    outline: none;
+    background-color: #fba451;
+
+
+    @media only screen and (max-device-width: 960px) {
+      .container { width:600px; } 
+      }

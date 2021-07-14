@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+	<link rel="stylesheet" href="/stylesheets/carrossel.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<title>carrossel</title>
+
+</head>
+<body>
+	<section>
+		<h2 class="barra">destaques</h2>
+   <div class="slider owl-carousel">
+	  <div class="card">
+		 <div class="img">
+			<img src="/images/jogo1.jpg" alt="">
+		 </div>
+		 <div class="content">
+			<div class="title">
+			   Jogo A
+			</div>
+			<div class="sub-title">
+			   R$ 29,90
+			</div>
+			<p>
+			   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+			</p>
+			<div class="btn">
+				<form class="buy" action="" method="POST">
+					<button class="icons-container" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+					<button class="icons-container" type="submit"><i class="fa fa-heart" aria-hidden="true"></i
+						></button>
+					</form>
+			</div>
+		 </div>
+	  </div>
+	  <div class="card">
+		 <div class="img">
+			<img src="/images/jogo2.jpg" alt="">
+		 </div>
+		 <div class="content">
+			<div class="title">
+			   Jogo B
+			</div>
+			<div class="sub-title">
+			   R$ 249,90
+			</div>
+			<p>
+			   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+			</p>
+			<div class="btn">
+				<form class="buy" action="" method="POST">
+					<button class="icons-container" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+					<button class="icons-container" type="submit"><i class="fa fa-heart" aria-hidden="true"></i
+						></button>
+					</form>
+			</div>
+		 </div>
+	  </div>
+	  <div class="card">
+		 <div class="img">
+			<img src="/images/jogo3.jpg" alt="">
+		 </div>
+		 <div class="content">
+			<div class="title">
+			   Jogo C
+			</div>
+			<div class="sub-title">
+			   R$ 159,90
+			</div>
+			<p>
+			   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+			</p>
+			<div class="btn">
+				<form class="buy" action="" method="POST">
+					<button class="icons-container" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+					<button class="icons-container" type="submit"><i class="fa fa-heart" aria-hidden="true"></i
+						></button>
+					</form>
+			</div>
+		 </div>
+	  </div>
+   </div>
+   <script>
+	  $(".slider").owlCarousel({
+		loop: true,
+		autoplay: true,
+		autoplayTimeout: 2000, //2000ms = 2s;
+		autoplayHoverPause: true,
+	  });
+   </script>
+   </section>
+</body>
+</html>
+<!-- <div class="todas-sugestoes">
+	<div class="sugestao-princ">
+	  <img class="thumbnail" src="./img/jogo1.jpg" alt="" />
+	  <p class="desc-curta">Lorem ipsum dolor sit amet consectetur.</p>
+	  <div class="img-sugestao">
+		<p class="preco car-heart">
+		  R$ 29,90
+		  <form action="" method="POST">
+			  <button class="icons-container" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+			  <button class="icons-container" type="submit"><i class="fa fa-heart" aria-hidden="true"></i
+				  ></button>
+			  </form>
+		  </p>
+	  </div>
+	</div> -->
+	
+	

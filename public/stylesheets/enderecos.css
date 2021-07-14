@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+main {
+  padding: 20px 40px;
+}
+
+.dados {
+  padding: 0 20px 20px 20px;
+  border: 1px solid #c4c4c4;
+}
+
+section p {
+  margin: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #031294;
+}
+
+.form {
+  color: #031294;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.form label {
+  margin-left: 10px;
+}
+
+input,
+select {
+  background-color: #ddd6d6;
+  border-radius: 20px;
+  border: 1px solid #c4c4c4;
+  padding: 5px 50px;
+  margin: 5px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+}
+
+#data input {
+  color: #c4c4c4;
+}
+
+.btn {
+  text-align: center;
+
+}
+
+button {
+  background-color: #fd8415;
+  border-radius: 20px;
+  color: #0b0230;
+  border: 1px solid #0b0230;
+  padding: 10px 20px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+button:hover {
+  outline: none;
+  background-color: #fba451;
+}
+
+@media (min-width: 768px) {
+
+  .formulario {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #c4c4c4;
+    margin: 50px 50px 10px 50px;
+  }
+
+  .btn main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dados {
+    border: none;
+  }
+}

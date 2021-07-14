@@ -1,0 +1,18 @@
+.mx-auto {
+    color: var(--primary);
+    text-align: center;
+}
+
+.formatar {
+    background-color: #ddd6d6;
+    color: black;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+   
+}
