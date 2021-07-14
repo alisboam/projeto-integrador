@@ -11,7 +11,7 @@ a {
   text-decoration: none;
 }
 
-.container {
+.container-header {
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
@@ -63,7 +63,7 @@ a {
   border-left: none;
 }
 
-form {
+form.form-header {
   display: flex;
   justify-content: space-around;
 }
@@ -224,7 +224,7 @@ img.logo-footer {
     justify-content: space-around;
   }
 
-  form {
+  form.form-header {
     order: 1;
     display: flex;
     justify-content: space-around;

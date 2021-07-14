@@ -27,6 +27,8 @@ body {
 .slider {
   max-width: 1100px;
   display: flex;
+  margin: 40px 30px;
+  justify-content: center;
 }
 
 .slider .card {

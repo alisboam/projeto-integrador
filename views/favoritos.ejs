@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/carrinho.css" />
+    <link rel="stylesheet" href="/stylesheets/favoritos.css" />
     <title>Favoritos</title>
   </head>
   <body>
     <header><%- include("./partials/header") %></header>
-    <div class="container">
-      <h1>favoritos</h1>
+    <div class="container-favoritos">
+      <h1>Favoritos</h1>
       <div class="cart">
         <div class="products">
           <div class="product">
@@ -29,6 +29,9 @@
         </div>
       </div>
     </div>
+    <section>
+      <%- include("./partials/carrossel") %>
+    </section>
     <footer><%- include("./partials/footer") %></footer>
   </body>
 </html>

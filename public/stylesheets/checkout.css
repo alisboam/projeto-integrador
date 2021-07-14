@@ -16,11 +16,7 @@
     border-radius: 20px;
     padding: 20px;
     color: #031294;
-   
-
-   
   }
-  
   
    .form-control {
     background-color: #ddd6d6;
@@ -34,16 +30,11 @@
     box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
   }
 
-
-
-
   input:focus {
     outline: none;
     box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
   }
   
-
-
   .btn {
     text-align: center;
     background-color: #fd8415;
@@ -58,8 +49,10 @@
   button:hover {
     outline: none;
     background-color: #fba451;
+  }
 
 
     @media only screen and (max-device-width: 960px) {
-      .container { width:600px; } 
-      }
+      .container { 
+        width:600px; } 
+    }

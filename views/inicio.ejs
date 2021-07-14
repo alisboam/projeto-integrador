@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/inicio.css" />
+    <title>checkm8</title>
+  </head>
+  <body>
+    <header><%- include("./partials/header") %></header>
+    <main class="container-inicio">
+      <div class="img-slider">
+        <div class="slide active">
+          <img src="/images/jogo8.jpg" alt="">
+          <div class="info">
+            <h2>Slide 01</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/jogo12.jpg" alt="">
+          <div class="info">
+            <h2>Slide 02</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/jogo11.jpg" alt="">
+          <div class="info">
+            <h2>Slide 03</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="navigation">
+          <div class="btn active"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+    
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+      var slides = document.querySelectorAll('.slide');
+      var btns = document.querySelectorAll('.btn');
+      let currentSlide = 1;
+  
+      // Javascript for image slider manual navigation
+      var manualNav = function(manual){
+        slides.forEach((slide) => {
+          slide.classList.remove('active');
+  
+          btns.forEach((btn) => {
+            btn.classList.remove('active');
+          });
+        });
+  
+        slides[manual].classList.add('active');
+        btns[manual].classList.add('active');
+      }
+  
+      btns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          manualNav(i);
+          currentSlide = i;
+        });
+      });
+  
+      // Javascript for image slider autoplay navigation
+      var repeat = function(activeClass){
+        let active = document.getElementsByClassName('active');
+        let i = 1;
+  
+        var repeater = () => {
+          setTimeout(function(){
+            [...active].forEach((activeSlide) => {
+              activeSlide.classList.remove('active');
+            });
+  
+          slides[i].classList.add('active');
+          btns[i].classList.add('active');
+          i++;
+  
+          if(slides.length == i){
+            i = 0;
+          }
+          if(i >= slides.length){
+            return;
+          }
+          repeater();
+        }, 10000);
+        }
+        repeater();
+      }
+      repeat();
+      </script>
+  
+
+      <h2 class="barra">categorias</h2>
+      <div class="todas-categorias">
+        <div class="classes">
+          <a class="classe-jogo1" href="/produtos">galera</a>
+        </div>
+        <div class="classes">
+          <a class="classe-jogo2" href="/produtos">infantil</a>
+        </div>
+        <div class="classes">
+          <a class="classe-jogo3" href="/produtos">estratégia</a>
+        </div>
+        <div class="classes">
+          <a class="classe-jogo4" href="/produtos">família</a>
+        </div>
+      </div>
+      <section>
+        <%- include("./partials/carrossel") %>
+      </section>
+  </main>
+  <footer><%- include("./partials/footer") %></footer>
+      </body>
+    </html>
+          

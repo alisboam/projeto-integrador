@@ -7,12 +7,9 @@ body {
   margin: 0;
 }
 
-.container {
+.container-geral-produto {
   width: 100%;
   margin: 0 auto;
-}
-
-main {
   padding: 20px 0;
 }
 
@@ -81,19 +78,21 @@ button.frete {
 
 button.buy {
   background-color: #fd8415;
-  border-radius: 20px;
-  color: #0b0230;
-  padding: 10px 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px 100px;
   font-weight: 600;
-  margin: 10px;
+  margin: 15px;
   font-size: 18px;
 }
 
 /* firulas */
 
 button:hover {
-  outline: none;
-  background-color: #fba451;
+  background-color: white;
+	color: #fd8415;
+	font-weight: 600;
+	border: 1px solid #fd8415;
 }
 input:focus {
   outline: none;
@@ -149,26 +148,6 @@ h2.barra {
   font-size: 14px;
 }
 
-/* container de produto */
-.todas-sugestoes {
-  border: 1px solid #888787;
-  display: flex;
-  margin: 20px;
-}
-
-.sugestao-princ {
-  margin: 20px;
-  padding: 20px 20px 0 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-}
-
-.sugestao-sec {
-  display: none;
-}
-
 img.thumbnail {
   width: 180px;
   height: 150px;
@@ -191,7 +170,7 @@ p.car-heart i {
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
-    margin: 100px;
+    margin: 20px 30px;
   }
   
   /* produto */
@@ -233,32 +212,5 @@ p.car-heart i {
 
   button.buy {
     padding: 10px 20px;
-  }
-
-  p.desc-curta {
-    margin: ;
-  }
-
-  .descricao {
-    border: none;
-    padding: 10px 0;
-  }
-
-  .sugestao-princ,
-  .sugestao-sec {
-    margin: 20px;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .img-sugestao { 
-  display: flex;
-  }
-
-  .todas-sugestoes {
-    margin: 30px 100px;
   }
 }
