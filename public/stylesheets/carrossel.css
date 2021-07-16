@@ -14,7 +14,7 @@ body {
 
 /* titulo */
 
- h2.barra {
+  h2.barra {
   background-color: #fd8415;
   color: #0b0230;
   padding: 10px;
@@ -24,38 +24,32 @@ body {
   text-transform: uppercase;
 }
 
-.slider {
-  max-width: 1100px;
-  display: flex;
-  margin: 40px 30px;
-  justify-content: center;
-}
-
-.slider .card {
+.card {
   flex: 1;
   margin: 0 10px;
   background: #fff;
+  border: 1px solid #888787;
 }
 
-.slider .card .img {
+.img {
   height: 200px;
   width: 100%;
 }
-
-.slider .card .img img {
+.card .img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-.slider .card .content {
+
+.card .content {
   padding: 10px 20px;
 }
 .card .content .title {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 600;
 }
 .card .content .sub-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   padding-top: 10px;
@@ -77,16 +71,13 @@ div.sub-title {
 button.icons-container {
   color: #fd8415;
   margin: 0 20px;
+  font-size: 20px;
 }
 
 .card .content .btn {
   display: block;
   text-align: left;
   margin: 10px 0;
-}
-
-.card {
-  border: 1px solid #888787;
 }
 
 form.buy {
@@ -99,7 +90,6 @@ form.buy {
   color: #fff;
   border: none;
   outline: none;
-  font-size: 17px;
   padding: 5px 8px;
   border-radius: 5px;
   cursor: pointer;
@@ -109,4 +99,41 @@ form.buy {
   transform: scale(0.9);
 } 
 
-/* barrinha */
+.wrapper{
+  width: 100%;
+}
+.carousel{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 30px;
+}
+.carousel {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.owl-dots{
+  text-align: center;
+  margin-top: 40px;
+}
+.owl-dot{
+  height: 15px;
+  width: 45px;
+  margin: 10px 5px;
+  outline: none;
+  border-radius: 14px;
+  border: 2px solid #fd8415!important;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.owl-dot.active,
+.owl-dot:hover{
+  background: #fd8415!important;
+}
+
+@media (max-width: 768px) {
+  .carousel{
+    max-width: 500px;
+  }
+
+}
