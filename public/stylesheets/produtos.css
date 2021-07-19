@@ -1,8 +1,7 @@
+
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
-  max-width: 1600px;
-  width: 100%;
   margin: 0 auto;
 }
 
@@ -25,7 +24,7 @@ h2.barra {
   border: 1px solid #888787;
 }
 
-.img img {
+.img-card img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -91,10 +90,31 @@ form.buy {
 }
 
 div.content-products {
+  max-width: 1200px;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   display: flex;
   text-align: center;
   margin: 10px 20px;
+}
+
+#icon {
+  display: none;
+}
+
+/* responsividade */
+
+@media (max-width: 768px) {
+
+  .card {
+    width: 60%;
+    margin: 15px;
+  
+  }
+  div.content-products {
+    margin: 10px;
+    width: 100%;
+
+  }
 }
