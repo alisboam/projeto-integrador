@@ -9,7 +9,8 @@
  const checkoutController = require("../controllers/CheckoutController");
  const minhaContaController = require("../controllers/MinhaContaController");
  const favoritosController = require("../controllers/FavoritosController");
- const InicioController = require("../controllers/InicioController");
+ const inicioController = require("../controllers/InicioController");
+ const sobreController = require("../controllers/SobreController");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,7 +26,8 @@ router.get("/produtos", produtosController.index);
 router.get("/checkout", checkoutController.index);
 router.get("/login", minhaContaController.index);
 router.get("/favoritos", favoritosController.index);
-router.get("/inicio", InicioController.index);
+router.get("/inicio", inicioController.index);
+router.get("/sobre", sobreController.index);
 
 
 module.exports = router;
