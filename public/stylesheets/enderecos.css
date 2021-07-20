@@ -23,18 +23,18 @@ section p {
   color: #031294;
 }
 
-.form {
+.form-2 {
   color: #031294;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
 }
 
-.form label {
+.form-2 label {
   margin-left: 10px;
 }
 
-input,
+.input-2,
 select {
   background-color: #ddd6d6;
   border-radius: 20px;
@@ -43,7 +43,7 @@ select {
   margin: 5px;
 }
 
-input:focus,
+.input-2:focus,
 select:focus {
   outline: none;
   box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
@@ -53,12 +53,12 @@ select:focus {
   color: #c4c4c4;
 }
 
-.btn {
+.btn-1 {
   text-align: center;
 
 }
 
-button {
+.btn-1 button {
   background-color: #fd8415;
   border-radius: 20px;
   color: #0b0230;

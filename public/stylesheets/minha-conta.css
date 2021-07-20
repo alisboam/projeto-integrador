@@ -3,12 +3,7 @@
   --input-padding-y: 0.75rem;
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
+.conta body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
