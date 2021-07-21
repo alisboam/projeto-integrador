@@ -13,12 +13,16 @@
 .container-favoritos > h1{
 	padding: 20px 0;
 }
+
 .cart{
 	display: flex;
+	justify-content: space-between;
 }
-.products{
+
+/* .products{
 	flex: 0.75;
-}
+} */
+
 .product{
 	display: flex;
 	width: 100%;
@@ -41,15 +45,16 @@
 	transform: scale(1.04);
 }
 .product-info{
+	display: flex;
 	padding: 20px;
 	width: 100%;
-	position: relative;
+	flex-direction: column;
+	justify-content: space-around;
+	/* position: relative; */
 }
-.product-name, .product-price, .product-offer{
-	margin-bottom: 20px;
-}
+
 .product-remove{
-	margin-left: 450px;
+	margin-left: 650px;
 	padding: 10px 25px;
 	background-color: #fd8415;
 	color: white;
@@ -79,27 +84,7 @@
 	border: 1px solid silver;
 	border-radius: 5px;
 }
-.cart-total p{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 30px;
-	font-size: 20px;
-}
-.cart-total a{
-	display: block;
-	text-align: center;
-	height: 40px;
-	line-height: 40px;
-	background-color: green;
-	color: white;
-	text-decoration: none;
-}
-.cart-total a:hover{
-	background-color: white;
-	color: green;
-	font-weight: 600;
-	border: 1px solid green;
-}
+
 @media screen and (max-width: 700px){
 	.remove{
 		display: none;
@@ -123,10 +108,7 @@
 	.cart{
 		flex-direction: column;
 	}
-	.cart-total{
-		margin-left: 0;
-		margin-bottom: 20px;
-	}
+	
 	.product-remove{
 		margin-left: 20px;
 	}

@@ -12,7 +12,7 @@
         <!-- card de produto -->
         <div class="card">
           <div class="img-card">
-            <img src="./img/jogo1.jpg" alt="" />
+            <img src="/images/jogo10.jpg" alt="" />
           </div>
           <div class="content">
             <div class="title">Jogo A</div>
@@ -23,7 +23,7 @@
             </p>
             <div class="btn">
               <form class="buy" action="" method="POST">
-                <button class="icons-container" type="submit">
+                <button class="icons-container" type="submit" id="mybutton-buy">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 </button>
                 <button class="icons-container" type="submit">
@@ -302,5 +302,10 @@
       </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
+    <script type="text/javascript">
+      document.getElementById("mybutton-buy").onclick = function () {
+          location.href = "/carrinho";
+      };
+  </script>
   </body>
 </html>
