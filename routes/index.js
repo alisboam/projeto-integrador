@@ -11,6 +11,7 @@
  const favoritosController = require("../controllers/FavoritosController");
  const inicioController = require("../controllers/InicioController");
  const sobreController = require("../controllers/SobreController");
+ const usuarioController = require("../controllers/UsuarioController");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,7 @@ router.get("/login", minhaContaController.index);
 router.get("/favoritos", favoritosController.index);
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
+router.get("/usuario", usuarioController.index);
 
 
 module.exports = router;
