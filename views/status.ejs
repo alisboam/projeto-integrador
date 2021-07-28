@@ -1,0 +1,38 @@
+
+<html lang="en">
+    <link rel="stylesheet" href="/stylesheets/status.css" />
+    <title>Favoritos</title>
+  </head>
+  <body>
+    <header><%- include("./partials/header") %></header>
+    <div class="container-status">
+        <div class="pedido-numero">
+           <h2>pedido numero xxx</h2> 
+        </div>
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="recebido"
+        ></div>
+        <div class="progress-step" data-title="nota fiscal emitida"></div>
+        <div class="progress-step" data-title="preparando envio"></div>
+        <div class="progress-step" data-title="enviado"></div>
+        <div class="progress-step" data-title="entregue"></div>
+      </div>
+      <div class="pedido-detalhes">
+          detalhes do pedido
+
+      </div>
+      <div class="contact">
+          <a href="">trocar ou devolver</a>
+          
+      </div>
+    
+    <section>
+      <%- include("./partials/carrossel") %>
+    </section>
+    <footer><%- include("./partials/footer") %></footer>
+  </body>
+</html>
