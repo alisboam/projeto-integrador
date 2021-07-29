@@ -1,17 +1,16 @@
-
 <html lang="en">
+  <head>
     <link rel="stylesheet" href="/stylesheets/status.css" />
     <title>Favoritos</title>
   </head>
   <body>
     <header><%- include("./partials/header") %></header>
     <div class="container-status">
-        <div class="pedido-numero">
-           <h2>pedido numero xxx</h2> 
-        </div>
-    <div class="progressbar">
+      <div class="pedido-numero">
+        <p>pedido numero xxx</p>
+      </div>
+      <div class="progressbar">
         <div class="progress" id="progress"></div>
-        
         <div
           class="progress-step progress-step-active"
           data-title="recebido"
@@ -21,18 +20,22 @@
         <div class="progress-step" data-title="enviado"></div>
         <div class="progress-step" data-title="entregue"></div>
       </div>
+      <section class="pedidos-trocas">
       <div class="pedido-detalhes">
-          detalhes do pedido
-
-      </div>
+          <p class="status">detalhes do pedido</p>
+          <div class="pedidos-quantidade">
+          <span>jogo A </span>
+          <span>R$299,90</span>
+          <span>quant: 1</span>
+        </div>
+          </div>
       <div class="contact">
-          <a href="">trocar ou devolver</a>
-          
+        <p class="status">precisa de ajuda?</p>
+        <a href="">trocar ou devolver</a>
       </div>
-    
-    <section>
-      <%- include("./partials/carrossel") %>
     </section>
+    </div>
+    <section><%- include("./partials/carrossel") %></section>
     <footer><%- include("./partials/footer") %></footer>
   </body>
 </html>

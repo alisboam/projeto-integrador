@@ -9,6 +9,12 @@
 	margin: 0 auto;
 }
 
+.pedido-numero p {
+    padding-top: 20px;
+    color: green;
+    font-size: 24px;
+    font-weight: 800;
+}
 
 .progressbar {
     position: relative;
@@ -16,6 +22,7 @@
     justify-content: space-between;
     counter-reset: step;
     margin: 2rem 0 4rem;
+
   }
   
   .progressbar::before,
@@ -32,8 +39,8 @@
   
   .progress {
     background-color: #c4c4c4;
-    width: 0%;
     transition: 0.3s;
+    width: 0%;
   }
   
   .progress-step {
@@ -62,4 +69,34 @@
   .progress-step-active {
     background-color: green;
     color: #f3f3f3;
+  }
+
+  .pedido-detalhes {
+      padding: 10px;
+      border: 1px solid #c4c4c4;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .pedidos-quantidade {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      width: 50%;
+  }
+
+  p.status {
+      text-align: center;
+      color: #0b0230;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 10px;
+  }
+
+  .contact {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #c4c4c4;
+
   }
