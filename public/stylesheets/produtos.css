@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
-  margin: 0 auto;
 }
 
 /* titulo */
@@ -32,6 +31,7 @@ h2.barra {
 
 .card .content {
   padding: 10px 20px;
+  margin: 0 auto;
 }
 .card .content .title {
   font-size: 18px;

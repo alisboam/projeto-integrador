@@ -1,9 +1,9 @@
-:root {
+/* :root {
     --input-padding-x: .75rem;
     --input-padding-y: .75rem;
-  }
+  } */
   
-  body {
+  div.contato {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -21,11 +21,10 @@
   }
 
   .form-border {
-
     border: 1px solid #c4c4c4;
     border-radius: 20px;
     padding: 20px
-   
+  
   }
   
    .form-control {

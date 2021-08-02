@@ -8,8 +8,6 @@
 html,
 body {
   display: grid;
-  place-items: center;
-  text-align: center;
 }
 
 /* titulo */
@@ -22,6 +20,7 @@ body {
   font-weight: 800;
   font-size: 18px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .card {
@@ -101,13 +100,14 @@ form.buy {
 
 .wrapper{
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
 .carousel{
   max-width: 1200px;
   margin: auto;
-  padding: 0 30px;
-}
-.carousel {
+  padding: 0 20px;
   text-align: center;
   margin: 20px 0;
 }
