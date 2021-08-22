@@ -19,7 +19,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get("/produto", produtoController.index);
+router.get("/produto", function(req, res) => {
+    return res.render("produto")
+});
+
 router.get("/enderecos", enderecoController.index);
 router.get("/carrinho", carrinhoController.index);
 router.get("/cadastro", cadastroController.index);
@@ -30,7 +33,11 @@ router.get("/login", minhaContaController.index);
 router.get("/favoritos", favoritosController.index);
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
-router.get("/usuario", usuarioController.index);
+
+router.get("/usuario", (req, res) => {
+  return res.render("usuario")
+});
+
 router.get("/status", statusController.index);
 
 

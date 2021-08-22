@@ -1,7 +1,3 @@
-const UsuarioController = {
-    index: (req, res) => {
-        return res.render("usuario")
-    }
-}
+const UsuarioController = require("../models/UsuarioModel")
 
 module.exports = UsuarioController;

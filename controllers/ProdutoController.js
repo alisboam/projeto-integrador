@@ -1,7 +1,3 @@
-const ProdutoController = {
-    index : (req, res) => {
-        return res.render("produto");
-    }
-}
+const ProdutoController = require("../models/ProdutoModels")
 
 module.exports = ProdutoController;
