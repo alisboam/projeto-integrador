@@ -19,7 +19,7 @@
 
 <header><%- include("./partials/header") %></header>
 
-<form class="form-signin">
+<form class="form-signin" method="POST">
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Minha conta</h1>
     </div>
@@ -27,18 +27,18 @@
       <h3 class="h4 mb-3 font-weight-normal text-center">Cadastre-se</h3>
       <div class="form-group">
         <label for="exampleInputEmail1">Nome completo</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
+        <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
       </div>
     <div class="form-group">
         <label for="exampleInputEmail1">E-mail</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex:seuemail.com">
+        <input type="email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex:seuemail.com">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
+        <input type="password" name="senha"class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
         <div class="form-group">
             <label for="exampleInputPassword1">Confirmar senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
+            <input type="password" name="confirma" class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="lembrar de mim"> Lembrar de mim
