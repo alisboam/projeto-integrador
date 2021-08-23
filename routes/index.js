@@ -32,7 +32,8 @@ router.get("/cadastro", cadastroController.index);
 router.post("/cadastro",(req, res) => {
   const {nome, email, senha, confirma} = req.body;
   const { id } = usuarioController.cadastrar({nome, email, senha, confirma});
-  req.session.user = user;
+  const { session } = req;
+  session.user = user;
   return res.render("usuario")
 });
 
@@ -45,12 +46,9 @@ router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
 
 router.get("/usuario", (req, res) => {
-  return res.render("usuario")
-});
-
-router.post("/usuario", (req, res) => {
-  const {nome, email, senha} = req.body
-  return res.render("usuario")
+  const { session } = req;
+  delete session.user;
+  return res.redirect("inicio")
 });
 
 router.get("/status", statusController.index);
