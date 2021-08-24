@@ -22,5 +22,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "javascript.validate.enable": false
+
 }

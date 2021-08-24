@@ -13,3 +13,6 @@ exports.novoUsuario = ({nome, email, hash}) => {
 
     return usuario;
 };
+
+exports.buscarPorEmail = email => 
+usuarios.find((usuario) => usuario.email === email);
