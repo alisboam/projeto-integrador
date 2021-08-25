@@ -23,6 +23,11 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING
       },
 
+      senha: {
+        allowNull: false,
+        type: DataTypes.STRING(60)
+      },
+
       numero_documento: {
         allowNull: false,
         type: DataTypes.STRING

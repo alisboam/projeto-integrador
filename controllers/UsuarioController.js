@@ -11,11 +11,11 @@ exports.cadastrar = async ({nome, email, senha, confirma }) => {
     //confirmar senha
 
     //hashed
-    const hashed = bcrypt.hash(senha, saltRounds).then(function(hash) {
+    const usuario = bcrypt.hash(senha, saltRounds).then(function(hash) {
         // Store hash in your password DB.
+       return UsuarioModel.novoUsuario({nome, email, hash});
     });
-
- return UsuarioModel.novoUsuario({nome, email, hashed});
+    return usuario;
 };
 
 // exports.efetuarLogin = async ({ email, senha }) = {
