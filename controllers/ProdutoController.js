@@ -1,3 +1,3 @@
-const ProdutoController = require("../models/ProdutoModels")
+const ProdutoController = require("../models/ProdutoModel")
 
 module.exports = ProdutoController;

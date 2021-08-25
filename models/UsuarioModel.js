@@ -1,18 +1,17 @@
-
+const UsuarioDatabase = require("../database/models/Usuario")
 const usuarios =[];
 
 exports.novoUsuario = ({nome, email, hash}) => {
     //gerar id???? const id = usuarios.length+1
-    const usuario = {
-        id, 
+    const usuarioCadastrado = {
         nome,
         email,
         hash
     }
-    usuarios.push(usuario);
+    usuarios.push(usuarioCadastrado);
 
-    return usuario;
+    return usuarioCadastrado;
 };
 
-exports.buscarPorEmail = email => 
-usuarios.find((usuario) => usuario.email === email);
+// exports.buscarPorEmail = email => 
+// usuarios.find((usuarioCadastrado) => usuarioCadastrado.email === email);

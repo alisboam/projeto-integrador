@@ -1,10 +1,8 @@
-const UsuarioController = require("../models/UsuarioModel")
-const bcryptjs = require("bcryptjs")
+const UsuarioModel = require("../models/UsuarioModel")
+const bcrypt = require("bcryptjs")
+const saltRounds = 10;
 
-
-module.exports = UsuarioController;
-
-exports.cadastrar = ({nome, email, senha, confirma }) => {
+exports.cadastrar = async ({nome, email, senha, confirma }) => {
     //confirmar se a senha é valida
     if (senha !== confirma) {
         throw new Error ("As senhas não conferem");
@@ -12,29 +10,33 @@ exports.cadastrar = ({nome, email, senha, confirma }) => {
 
     //confirmar senha
 
-    //hash
-    const hash = bcryptjs.hashSync(senha);
+    //hashed
+    const hashed = bcrypt.hash(senha, saltRounds).then(function(hash) {
+        // Store hash in your password DB.
+    });
 
- return UsuarioController.novoUsuario({nome, email, hash});
+ return UsuarioModel.novoUsuario({nome, email, hashed});
 };
 
-exports.efetuarLogin = ({ email, senha }) = {
-    //pegar os dados do usuario
-    const usuario = UsuarioController.buscarPorEmail(email);
-    if (!usuario) {
-        throw new Error ("e-mail não cadastrado")
-    }
-    //comparar senha
-    const { hash } = usuario;
-    const isValid = bcryptjs.compareSync(senha,hash);
-    //senha invalida, throw error
-    //senha valida, retorna o objeto do usuario
-    if (!isValid) {
-        throw new Error ("senha inválida")
-    }
-     const { id, nome, email } = usuario;
+// exports.efetuarLogin = async ({ email, senha }) = {
+//     //pegar os dados do usuario
+//     const usuario = UsuarioModel.buscarPorEmail(email);
+//     if (!usuario) {              
+//         throw new Error ("e-mail não cadastrado")
+//     }
+//     //comparar senha
+//     const { hashed } = usuario;
+//     const isValid = bcrypt.compare(senha, hashed).then(function(result) {
+//     });
 
-     const ret = { id, nome, email };
+//     //senha invalida, throw error
+//     //senha valida, retorna o objeto do usuario
+//     if (!isValid) {
+//         throw new Error ("senha inválida")
+//     }
+//      const { id, nome, email } = usuario;
 
-     return ret;
-}
+//      const ret = { id, nome, email };
+
+//      return ret;
+// }

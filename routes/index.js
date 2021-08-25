@@ -29,9 +29,9 @@ router.get("/carrinho", carrinhoController.index);
 router.get("/cadastro", cadastroController.index);
 
 //cadastro de usuario
-router.post("/cadastro", (req, res) => {
+router.post("/cadastro", async (req, res) => {
   const { nome, email, senha, confirma } = req.body;
-  const { id:user } = usuarioController.cadastrar({ nome, email, senha, confirma });
+  const { user } = usuarioController.cadastrar({ nome, email, senha, confirma });
   const { session } = req;
   session.user = user;
   return res.render("usuario");
