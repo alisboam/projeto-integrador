@@ -49,6 +49,5 @@ module.exports = function(sequelize, DataTypes) {
       Endereco.belongsTo(db.Usuario)
     }
 
-    return Usuario;
-
+    return Endereco;
 }
