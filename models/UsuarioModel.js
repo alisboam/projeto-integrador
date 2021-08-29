@@ -7,12 +7,9 @@ exports.novoUsuario = async ({nome, email, hash}) => {
         nome_completo: nome,
         email,
         senha: hash,
-        data_nascimento: new Date("2021-08-25"),
-        telefone: "9123456",
-        numero_documento: "123456",
-
-
-
+        data_nascimento,
+        telefone,
+        numero_documento
     })
 
     return usuarioCadastrado;

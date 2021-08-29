@@ -34,7 +34,7 @@ router.post("/cadastro", async (req, res) => {
   const { user } = usuarioController.cadastrar({ nome, email, senha, confirma });
   const { session } = req;
   session.user = user;
-  return res.render("usuario");
+  return res.redirect("enderecos");
 });
 
 router.get("/contato", contatoController.index);
