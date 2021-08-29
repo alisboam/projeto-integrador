@@ -16,7 +16,7 @@ exports.cadastrar = async ({nome, numero_documento, telefone, data_nascimento, e
 //     //pegar os dados do usuario
 //     const usuario = UsuarioModel.buscarPorEmail(email);
 //     if (!usuario) {              
-//         throw new Error ("e-mail não cadastrado")
+//         throw new Error ("Email ou senha inválidos")
 //     }
 //     //comparar senha
 //     const { hashed } = usuario;

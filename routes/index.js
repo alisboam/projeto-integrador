@@ -13,6 +13,7 @@ const inicioController = require("../controllers/InicioController");
 const sobreController = require("../controllers/SobreController");
 const usuarioController = require("../controllers/UsuarioController");
 const statusController = require("../controllers/StatusController");
+const session = require("express-session");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -31,7 +32,7 @@ router.get("/cadastro", cadastroController.index);
 //cadastro de usuario
 router.post("/cadastro", async (req, res) => {
   const { nome, numero_documento, telefone, data_nascimento, email, senha, confirma } = req.body;
-  const { user } = usuarioController.cadastrar({ nome, numero_documento, telefone, data_nascimento, email, senha, confirma });
+  const user = await usuarioController.cadastrar({ nome, numero_documento, telefone, data_nascimento, email, senha, confirma });
   const { session } = req;
   session.user = user;
   return res.redirect("enderecos");
