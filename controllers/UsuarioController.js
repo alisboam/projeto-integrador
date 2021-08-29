@@ -2,18 +2,12 @@ const UsuarioModel = require("../models/UsuarioModel")
 const bcrypt = require("bcryptjs")
 const saltRounds = 10;
 
-exports.cadastrar = async ({nome, email, senha, confirma }) => {
-    //confirmar se a senha é valida
+exports.cadastrar = async ({nome, numero_documento, telefone, data_nascimento, email, senha, confirma }) => {
     if (senha !== confirma) {
         throw new Error ("As senhas não conferem");
     }
-
-    //confirmar senha
-
-    //hashed
     const usuario = bcrypt.hash(senha, saltRounds).then(function(hash) {
-        // Store hash in your password DB.
-       return UsuarioModel.novoUsuario({nome, email, hash});
+       return UsuarioModel.novoUsuario({nome, numero_documento, telefone, data_nascimento, email, hash});
     });
     return usuario;
 };

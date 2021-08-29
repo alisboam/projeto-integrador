@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER.UNSIGNED
       },
        
-      nome_completo: {
+      nome: {
           allowNull: false,
           type: DataTypes.STRING
       },

@@ -1,10 +1,10 @@
 const { Usuario } = require("../database/models")
 
-exports.novoUsuario = async ({nome, email, hash}) => {
+exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento, email, hash}) => {
     //gerar id???? const id = usuarios.length+1
     
     const usuarioCadastrado = await Usuario.create({
-        nome_completo: nome,
+        nome,
         email,
         senha: hash,
         data_nascimento,
