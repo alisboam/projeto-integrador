@@ -15,5 +15,10 @@ exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento,
     return usuarioCadastrado;
 };
 
-// exports.buscarPorEmail = email => 
-// usuarios.find((usuarioCadastrado) => usuarioCadastrado.email === email);
+
+exports.buscarUsuarioPorEmail = (email) => {
+  return Usuario.findOne({ where:{ email: email}})
+//   .then((usuarios) => {
+//         console.log(usuarios)});
+    
+}
