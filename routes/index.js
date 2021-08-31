@@ -38,6 +38,14 @@ router.post("/cadastro", async (req, res) => {
   return res.redirect("enderecos");
 });
 
+router.post("/login", async (req, res, next) => {
+  const { email, senha } = req.body;
+  const user = await usuarioController.efetuarLogin({ email, senha });
+  req.session.user = user;
+
+  res.redirect("/produtos");
+});
+
 router.get("/contato", contatoController.index);
 router.get("/produtos", produtosController.index);
 router.get("/checkout", checkoutController.index);
@@ -52,13 +60,13 @@ router.use("/logout", (req, res) => {
   return res.redirect("inicio");
 });
 
-router.get("/login", (req, res) => {
-  const { email, senha } = req.body;
-  const { id:user} = usuarioController.efetuarLogin({ email, senha });
-  const { session } = req;
-  session.user = user;
-  return res.redirect("/inicio");
-});
+// router.get("/login", (req, res) => {
+//   const { email, senha } = req.body;
+//   const { id:user} = usuarioController.efetuarLogin({ email, senha });
+//   const { session } = req;
+//   session.user = user;
+//   return res.redirect("/inicio");
+// });
 
 router.get("/status", statusController.index);
 

@@ -16,7 +16,7 @@ exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento,
 };
 
 
-exports.buscarUsuarioPorEmail = (email) => {
+exports.buscarUsuarioPorEmail = async (email) => {
   return Usuario.findOne({ where:{ email: email}})
 //   .then((usuarios) => {
 //         console.log(usuarios)});
