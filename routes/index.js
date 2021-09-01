@@ -46,6 +46,13 @@ router.post("/login", async (req, res, next) => {
   res.redirect("/produtos");
 });
 
+router.post("/logout", function (req, res, next) {
+  const { session } = req;
+  delete session.user;
+
+  res.redirect("/");
+});
+
 router.get("/contato", contatoController.index);
 router.get("/produtos", produtosController.index);
 router.get("/checkout", checkoutController.index);
