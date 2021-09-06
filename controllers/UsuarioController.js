@@ -1,6 +1,8 @@
 const UsuarioModel = require("../models/UsuarioModel");
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
+const {check, validationResult, body} = require("express-validator");
+
 
 exports.cadastrar = async ({
   nome,
@@ -13,12 +15,6 @@ exports.cadastrar = async ({
 }) => {
   if (senha !== confirma) {
     throw new Error("As senhas não conferem");
-  }
-  const usuarioExiste = await UsuarioModel.buscarUsuarioPorEmail(email);
-  console.log(usuarioExiste);
-  // return
-  if (usuarioExiste) {
-    throw new Error("Email já cadastrado");
   }
 
   const usuario = bcrypt.hash(senha, saltRounds).then(function (hash) {

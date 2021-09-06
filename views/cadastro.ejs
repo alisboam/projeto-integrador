@@ -19,33 +19,60 @@
 
 <header><%- include("./partials/header") %></header>
 
-<form class="form-signin" method="POST">
+<% if (errors) { %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% errors.errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+
+<form class="form-signin needs-validation" novalidate method="POST">
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Minha conta</h1>
     </div>
     <div class="form-border">
       <h3 class="h4 mb-3 font-weight-normal text-center">Cadastre-se</h3>
       <div class="form-group">
-        <label for="exampleInputEmail1">Nome completo</label>
-        <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
-        <label for="data_nascimento">data nascimento</label>
-        <input type="text" name="data_nascimento" class="form-control" id="data_nascimento" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
-        <label for="numero_documento">cpf</label>
-        <input type="text" name="numero_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
-        <label for="telefone">telefone</label>
-        <input type="text" name="telefone" class="form-control" id="telefone" aria-describedby="emailHelp" placeholder="ex: Ana Maria">
-      </div>
-    <div class="form-group">
+        <label for="validationCustom01">Nome Completo</label>
+        <input type="text" name="nome" class="form-control" id="validationCustom01" aria-describedby="emailHelp" required>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
+        <label for="data_nascimento">Data de Nascimento</label>
+        <input type="text" name="data_nascimento" class="form-control" id="data_nascimento" aria-describedby="emailHelp" required>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
+        <label for="numero_documento">CPF ou CNPJ</label>
+        <input type="text" name="numero_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" required>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" class="form-control" id="telefone" aria-describedby="emailHelp" required>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
         <label for="exampleInputEmail1">E-mail - Esté será seu login</label>
-        <input type="email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex:seuemail.com">
-      </div>
-      <div class="form-group">
+        <input type="email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
         <label for="exampleInputPassword1">Senha</label>
-        <input type="password" name="senha"class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
-        <div class="form-group">
+        <input type="password" name="senha"class="form-control" id="exampleInputPassword1" placeholder="Mínimo 6 caracteres" required></div>
+        <div class="invalid-feedback">
+          O campo não pode ser vazio
+        </div>
             <label for="exampleInputPassword1">Confirmar senha</label>
-            <input type="password" name="confirma" class="form-control" id="exampleInputPassword1" placeholder="Senha"></div>
-    <!-- <div class="checkbox mb-3">
+            <input type="password" name="confirma" class="form-control" id="exampleInputPassword1" required></div>
+            <div class="invalid-feedback">
+              O campo não pode ser vazio
+            </div>
+    
+            <!-- <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="lembrar de mim"> Lembrar de mim
       </label>
@@ -56,6 +83,30 @@
   </form>
   </div>
 <footer><%- include("./partials/footer") %></footer>
+
+<script>
+
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
 
 </body>
 </html>
