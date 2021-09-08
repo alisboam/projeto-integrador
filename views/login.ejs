@@ -13,6 +13,15 @@
 </head>
 <body class="conta">
   <header><%- include("./partials/header") %></header>
+  
+  <% if (typeof message !== "undefined" && message !== null) { %>
+      <div class="alert alert-danger" role="alert">
+        <ul> 
+            <li><%= message %></li>
+        </ul>
+      </div>
+      <% } %> 
+
 <form class="form-signin" method="POST" action="/login">
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Minha conta</h1>

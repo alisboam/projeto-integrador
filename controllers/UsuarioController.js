@@ -44,6 +44,5 @@ exports.efetuarLogin = async({ senha, email }) => {
       console.log("usuario logado")
         return usuarioLogado;
   }
-
-  console.log("falha no login")
+  throw new Error('Falha no login');
 };
