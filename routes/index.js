@@ -17,6 +17,10 @@ const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
 const { render } = require("../app");
+let auth = require('../validators/userValidator');
+
+const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
+
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -32,9 +36,13 @@ router.get("/carrinho", carrinhoController.index);
 
 router.get("/cadastro", cadastroController.index);
 
+router.get("/usuario", function (req, res) {
+  return res.render("usuario");
+});
+
 //cadastro de usuario
 
-router.post("/cadastro", cadastroValidators, async (req, res) => {
+router.post("/cadastro", auth, cadastroValidators, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.render("cadastro", { errors });

@@ -25,9 +25,9 @@ const senhaValidator = check("senha")
 const nomeValidator = check("nome")
   .notEmpty()
   .withMessage("O nome deve ser preenchido");
-// const telefoneValidator = check("telefone")
-//   .matches(/[(][0-9]{2}[)]\s[0-9]?[0-9]{4}[-][0-9]{4}/)
-//   .withMessage("Telefone Inválido");
+const telefoneValidator = check("telefone")
+  .matches(/[(][0-9]{2}[)]\s[0-9]?[0-9]{4}[-][0-9]{4}/)
+  .withMessage("Telefone Inválido");
 
 module.exports = [
   emailValidator,
@@ -37,3 +37,16 @@ module.exports = [
   verificarSenhasCorrespondem 
   
 ];
+
+
+function auth(req, res, next) {
+  if (typeof(req.session.usuario) != "underfined") {
+  return next ()
+  }
+  else {
+   return res.send("Não está logado")
+  }
+  
+  };
+  
+  module.exports = auth;

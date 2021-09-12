@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
        
       nome: {
           allowNull: false,
-          type: DataTypes.STRING
+          type: DataTypes.STRING(150)
       },
 
       data_nascimento: {
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 
       telefone: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(11)
       },
 
       senha: {
@@ -30,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
 
       numero_documento: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(14)
       },
 
       email: {
@@ -38,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING
       }
     }, {
-      tableName: 'usuario',
+      tableName: 'usuarios',
       timestamps: false
     });
 
