@@ -25,7 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: Math.random().toString(30).slice(-10) }));
 
-
 app.use(function(req, res, next) {
   res.locals.user = req.session.user || null;
   next();
@@ -38,7 +37,6 @@ app.use(express.static("public"));
 
 //middleware validacao de usuario
 app.use('/', cadastroValidator);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -34,19 +34,18 @@ module.exports = [
   verificarSeUsuarioCadastrado,
   senhaValidator,
   nomeValidator,
-  verificarSenhasCorrespondem 
-  
+  verificarSenhasCorrespondem
 ];
 
 
-function auth(req, res, next) {
-  if (typeof(req.session.usuario) != "underfined") {
-  return next ()
-  }
-  else {
-   return res.send("Não está logado")
-  }
+// function auth(req, res, next) {
+//   if (typeof(req.session.usuario) != "underfined") {
+//   return next ()
+//   }
+//   else {
+//    return res.send("Não está logado")
+//   }
   
-  };
+//   };
   
-  module.exports = auth;
+//   module.exports = auth;

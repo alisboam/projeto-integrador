@@ -8,16 +8,11 @@ module.exports = function(sequelize, DataTypes) {
       },
        
       logradouro: {
-          allowNull: false,
-          type: DataTypes.STRING
-      },
-
-      numero: {
         allowNull: false,
         type: DataTypes.STRING
       },
 
-      numero_documento: {
+      numero: {
         allowNull: false,
         type: DataTypes.STRING
       },
@@ -42,7 +37,19 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING
       },
 
-      
+      usuario_id: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        references: {
+          model: 'Usuario',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
+      }
+    }, {
+      tableName: 'endereco',
+      timestamps: false
     });
     
     Endereco.associate = function (db) {

@@ -28,12 +28,12 @@
           <div class="dados">
             <form action="" method="POST">
               <div class="form-2">
-                <label for="rua">Rua</label>
+                <label for="logradouro">Rua</label>
                 <input
                   class="input-2"
                   type="text"
-                  name="usuario"
-                  id="Rua"
+                  name="logradouro"
+                  id="logradouro"
                   placeholder="ex. Rua xxxxxx"
                 />
               </div>
@@ -58,12 +58,12 @@
                 />
               </div>
               <div class="form-2">
-                <label for="cidade">Cidade</label>
+                <label for="municipio">Cidade</label>
                 <input
                   class="input-2"
                   type="text"
-                  name="cidade"
-                  id="cidade"
+                  name="municipio"
+                  id="municipio"
                   placeholder="ex.: Santa Paula"
                 />
               </div>
@@ -112,12 +112,13 @@
                   placeholder="00000-000"
                 />
               </div>
+
+              <div class="btn-1">
+                <button class="btn btn-warning btn-block" type="submit">Entrar</button>
+              </div>
             </form>
           </div>
         </section>
-      </div>
-      <div class="btn-1">
-        <button type="submit">Enviar</button>
       </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>

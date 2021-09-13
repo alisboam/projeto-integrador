@@ -4,7 +4,6 @@ const { validationResult } = require("express-validator");
 const produtoController = require("../controllers/ProdutoController");
 const enderecoController = require("../controllers/EnderecoController");
 const carrinhoController = require("../controllers/CarrinhoController");
-const cadastroController = require("../controllers/CadastroController");
 const contatoController = require("../controllers/ContatoController");
 const produtosController = require("../controllers/ProdutosController");
 const checkoutController = require("../controllers/CheckoutController");
@@ -16,7 +15,7 @@ const usuarioController = require("../controllers/UsuarioController");
 const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
-const { render } = require("../app");
+// const { render } = require("../app");
 let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
@@ -31,18 +30,18 @@ router.get("/produto", function (req, res) {
   return res.render("produto");
 });
 
-router.get("/enderecos", enderecoController.index);
 router.get("/carrinho", carrinhoController.index);
-
-router.get("/cadastro", cadastroController.index);
 
 router.get("/usuario", function (req, res) {
   return res.render("usuario");
 });
 
 //cadastro de usuario
+router.get("/cadastro", function (req, res, next) {
+  return res.render("cadastro", {errors: null});
+});
 
-router.post("/cadastro", auth, cadastroValidators, async (req, res) => {
+router.post("/cadastro", cadastroValidators, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.render("cadastro", { errors });
@@ -69,6 +68,17 @@ router.post("/cadastro", auth, cadastroValidators, async (req, res) => {
   const { session } = req;
   session.user = user;
   return res.redirect("enderecos");
+});
+
+router.get("/enderecos", function (req, res) {
+  return res.render("enderecos");
+});
+
+router.post("/enderecos", function (req, res) {
+  const address = req.body;
+  address.idUsuario = req.session.user.id
+  enderecoController.cadastrarEndereco(address)
+  return res.redirect("produtos");
 });
 
 //login de usuario

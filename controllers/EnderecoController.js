@@ -1,7 +1,5 @@
-const EnderecoController = {
-    index : (req, res) => {
-        return res.render("enderecos");
-    }
-}
+const UsuarioModel = require("../models/UsuarioModel")
 
-module.exports = EnderecoController;
+exports.cadastrarEndereco = async (address) => {
+    return await UsuarioModel.novoEndereco(address)
+}
