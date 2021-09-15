@@ -16,7 +16,7 @@ const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
 // const { render } = require("../app");
-let auth = require('../validators/userValidator');
+// let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
 
@@ -30,7 +30,7 @@ router.get("/produto", function (req, res) {
   return res.render("produto");
 });
 
-router.get("/carrinho", carrinhoController.index);
+router.get("/carrinho", verificarUsuarioLogado, carrinhoController.index);
 
 router.get("/usuario", function (req, res) {
   return res.render("usuario");
@@ -105,11 +105,14 @@ router.use("/logout", (req, res) => {
 
 router.get("/contato", contatoController.index);
 router.get("/produtos", produtosController.index);
-router.get("/checkout", checkoutController.index);
-router.get("/favoritos", favoritosController.index);
+router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
+router.get("/favoritos",verificarUsuarioLogado, function (req, res) {
+  console.log("passei aqui")
+  return res.render("favoritos");
+});
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
 
-router.get("/status", statusController.index);
+router.get("/status", verificarUsuarioLogado, statusController.index);
 
 module.exports = router;
