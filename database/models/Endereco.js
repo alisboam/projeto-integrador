@@ -9,46 +9,46 @@ module.exports = function(sequelize, DataTypes) {
        
       logradouro: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(200)
       },
 
       numero: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(10)
       },
 
       complemento: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(50)
       },
 
       municipio: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(100)
       },
 
       estado: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(2)
       },
 
       cep: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING(9)
       },
 
       usuario_id: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         references: {
-          model: 'Usuario',
+          model: 'usuarios',
           key: 'id'
         },
         onUpdate: 'cascade',
         onDelete: 'cascade'
       }
     }, {
-      tableName: 'endereco',
+      tableName: 'enderecos',
       timestamps: false
     });
     

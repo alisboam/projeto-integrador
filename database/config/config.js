@@ -4,7 +4,10 @@ module.exports = {
     "password": "mysql123",
     "database": "checkm8",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored":true
+    }
   },
   "test": {
     "username": "root",
