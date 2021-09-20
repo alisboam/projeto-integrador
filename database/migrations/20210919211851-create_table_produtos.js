@@ -12,6 +12,11 @@ module.exports = {
       type: Sequelize.BIGINT.UNSIGNED
     },
 
+    nome: {
+      allowNull: false,
+      type: Sequelize.STRING
+    },
+
     preco: {
       allowNull: false,
       type: Sequelize.DOUBLE

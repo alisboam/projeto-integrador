@@ -9,6 +9,11 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.BIGINT.UNSIGNED
       },
 
+      nome: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
+
       preco: {
         allowNull: false,
         type: DataTypes.DOUBLE
