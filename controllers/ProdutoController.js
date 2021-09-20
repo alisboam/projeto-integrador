@@ -1,3 +1,3 @@
-const ProdutoController = require("../models/ProdutoModel")
+// const produtoModel = require("../models/ProdutoModel")
 
-module.exports = ProdutoController;
+// console.log(produtoModel.buscarProduto())
