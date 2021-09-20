@@ -42,5 +42,12 @@ module.exports = function (sequelize, DataTypes) {
       timestamps: false
     });
 
+    Usuario.associate = function (db) {
+      Usuario.hasOne(db.Endereco, {
+        as: "enderecos",
+        foreignKey: "usuario_id"
+      })
+    }
+
     return Usuario;
 }
