@@ -3,11 +3,10 @@
       <img src="/images/jogo10.jpg" alt="" />
     </div>
     <div class="content">
-      <div class="title">Jogo A</div>
-      <div class="sub-title">R$ 29,90</div>
+      <div class="title"><%= produto.nome%></div>
+      <div class="sub-title"><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></div>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit
-        modi dolorem quis quae animi nihil minus sed unde voluptas cumque.
+        <%=produto.descricao%>
       </p>
       <div class="btn">
         <form class="buy" action="" method="POST">

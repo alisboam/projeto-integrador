@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { validationResult } = require("express-validator");
 const produtoController = require("../controllers/ProdutoController");
+const produtosController = require("../controllers/ProdutosController");
 const enderecoController = require("../controllers/EnderecoController");
 const carrinhoController = require("../controllers/CarrinhoController");
 const contatoController = require("../controllers/ContatoController");
-const produtosController = require("../controllers/ProdutosController");
 const checkoutController = require("../controllers/CheckoutController");
 const minhaContaController = require("../controllers/MinhaContaController");
 const favoritosController = require("../controllers/FavoritosController");
@@ -33,7 +33,7 @@ router.get("/produto", function (req, res) {
 const produtoModel = require("../models/ProdutoModel")
 
 router.get("/produto/busca", async function (req, res) {
-  var produtos = await produtoModel.buscarProduto(req.query.q);
+  const produtos = await produtoModel.buscarProduto(req.query.q);
   return res.end(JSON.stringify(produtos));
 });
 
@@ -111,10 +111,14 @@ router.use("/logout", (req, res) => {
 });
 
 router.get("/contato", contatoController.index);
-router.get("/produtos", produtosController.index);
+
+router.get("/produtos", async function (req, res) {
+  const produtos = await produtosController.listarProdutos();
+  return res.render("produtos", {produtos});
+});
+
 router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
 router.get("/favoritos",verificarUsuarioLogado, function (req, res) {
-  console.log("passei aqui")
   return res.render("favoritos");
 });
 router.get("/inicio", inicioController.index);

@@ -20,3 +20,10 @@ exports.buscarProduto = async (palavra) => {
     },
   });
 };
+
+exports.listarProdutos = async() => {
+    return Produto.findAll({
+        limit:10
+    })
+}
+

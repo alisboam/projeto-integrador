@@ -10,9 +10,9 @@
       <h2 class="barra">Produtos</h2>
       <div class="content-products">
         <!-- card de produto -->
-        <% for (let i=0; i < 12; i++){ %>
-        <%- include("./partials/produto-item") %>
-        <% } %>
+        <% produtos.forEach(produto => { %>
+        <%- include("./partials/produto-item", {produto}) %>
+        <% }); %>
       </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
