@@ -36,6 +36,11 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING(5)
     },
+
+    imagem: {
+      allowNull: false,
+      type: Sequelize.STRING
+    },
   },
   {
     tableName: "produtos",

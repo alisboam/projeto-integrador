@@ -33,6 +33,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         type: DataTypes.STRING(5)
       },
+
+      imagem: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
     },
     {
       tableName: "produtos",
