@@ -1,3 +1,3 @@
-// const produtoModel = require("../models/ProdutoModel")
+const produtoModel = require("../models/ProdutoModel")
 
-// console.log(produtoModel.buscarProduto())
+exports.pesquisaProduto = () => produtoModel.buscarProduto()

@@ -30,6 +30,13 @@ router.get("/produto", function (req, res) {
   return res.render("produto");
 });
 
+const produtoModel = require("../models/ProdutoModel")
+
+router.get("/produto/busca", async function (req, res) {
+  var produtos = await produtoModel.buscarProduto(req.query.q);
+  return res.end(JSON.stringify(produtos));
+});
+
 router.get("/carrinho", verificarUsuarioLogado, carrinhoController.index);
 
 router.get("/usuario", function (req, res) {
