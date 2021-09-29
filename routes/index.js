@@ -32,9 +32,13 @@ router.get("/produto", function (req, res) {
 
 const produtoModel = require("../models/ProdutoModel")
 
-router.get("/produto/busca", async function (req, res) {
-  const produtos = await produtoModel.buscarProduto(req.query.q);
-  return res.end(JSON.stringify(produtos));
+router.get("/produtos/busca", async function (req, res) {
+    const produtos = await produtoModel.buscarProduto(req.query.q);
+    console.log(`${produtos.length} encontrados na busca`)
+    return res.render("produtos", {produtos})
+
+  // const produtos = await produtoModel.buscarProduto(req.query.q);
+  // return res.end(JSON.stringify(produtos));
 });
 
 router.get("/carrinho", verificarUsuarioLogado, carrinhoController.index);
