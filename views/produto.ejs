@@ -23,61 +23,69 @@
     <main class="container-geral-produto">
       <section class="container-produto">
         <div class="container-desktop">
-        <div class="desktop">
-          <div class="produto">
-            <div class="img-desktop">
-              <img class="img-produto" src="<%= produto.imagem %>" alt="" />
-            </div>
-            <div class="preco-desktop">
-              <h1><%= produto.nome %></h1>
-              <p class="desc-curta">
-                <%= produto.descricao %>
-              </p>
-              <p class="preco"><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></p>
-              <button class="buy" type="submit">Comprar</button>
-              <form class="frete" action="" method="POST">
-                <div class="cep">
-                <label for="frete">Calcule o frete</label>
-                <div class="frete">
-                  <input
-                    type="text"
-                    name="frete"
-                    id="frete"
-                    placeholder="00000-000"
-                  />
-                  <button class="frete" type="submit">ok</button>
+          <div class="desktop">
+            <div class="produto">
+              <div class="img-desktop">
+                <img class="img-produto" src="<%= produto.imagem %>" alt="" />
+              </div>
+              <div class="preco-desktop">
+                <h1><%= produto.nome %></h1>
+                <p class="desc-curta"><%= produto.descricao %></p>
+                <p class="preco">
+                  <%=produto.preco.toLocaleString('pt-br',{style: 'currency',
+                  currency: 'BRL'})%>
+                </p>
+                <form class="buy" action="/carrinho" method="POST">
+                  <a href="/carrinho">
+                    <input
+                      type="hidden"
+                      id="custId"
+                      name="id"
+                      value="<%=produto.id%>"
+                    />
+
+                    <button class="buy" type="submit">Comprar</button>
+                  </a>
+                </form>
+                <form class="frete" action="" method="POST">
+                  <div class="cep">
+                    <label for="frete">Calcule o frete</label>
+                    <div class="frete">
+                      <input
+                        type="text"
+                        name="frete"
+                        id="frete"
+                        placeholder="00000-000"
+                      />
+                      <button class="frete" type="submit">ok</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="info">
+                <span class="titulo-info">Info</span>
+                <div class="info-box">
+                  <span
+                    ><i class="fa fa-users" aria-hidden="true"></i> 2-4
+                    jogadores</span
+                  >
                 </div>
-              </div>
-              </form>
-            </div>
-            <div class="info">
-              <span class="titulo-info">Info</span>
-              <div class="info-box">
-                <span
-                  ><i class="fa fa-users" aria-hidden="true"></i> 2-4
-                  jogadores</span
-                >
-              </div>
-              <div class="info-box">
-                <span>
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i> 12 anos
-                  +</span
-                >
+                <div class="info-box">
+                  <span>
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i> 12 anos
+                    +</span
+                  >
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="descricao">
-          <p class="titulo-info">Descricao</p>
-          <p>
-            <%= produto.descricao %>
-          </p>
-        </div>
+          <div class="descricao">
+            <p class="titulo-info">Descricao</p>
+            <p><%= produto.descricao %></p>
+          </div>
         </div>
       </section>
-      <section>
-        <%- include("./partials/carrossel") %>
-      </section>
+      <section><%- include("./partials/carrossel") %></section>
     </main>
     <footer><%- include("./partials/footer") %></footer>
   </body>

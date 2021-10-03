@@ -1,3 +1,4 @@
+<a href="/produtos/<%= produto.id %>">
 <div class="card">
     <div class="img-card">
       <a href="/produtos/<%= produto.id %> "><img src="<%= produto.imagem %> " alt="" /></a>
@@ -9,8 +10,10 @@
         <%=produto.descricao%>
       </p>
       <div class="btn">
-        <form class="buy" action="" method="POST">
+        <form class="buy" action="/carrinho" method="POST">
           <a href="/carrinho">
+            <input type="hidden" id="custId" name="id" value="<%=produto.id%>">
+
           <button class="icons-container" type="submit" id="mybutton-buy">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           </button>
@@ -24,3 +27,4 @@
       </div>
     </div>
   </div>
+</a>

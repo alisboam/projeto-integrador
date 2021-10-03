@@ -19,19 +19,25 @@ const produtoModel = require("../models/ProdutoModel")
 // let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
-
+const { adicionarProduto } = require("../models/CarrinhoModel"); 
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("inicio", { title: "Inicio" });
 });
 
-
-router.get("/carrinho", verificarUsuarioLogado, function (req, res) {
-  return res.render("carrinho");
+router.post("/carrinho", async function (req, res) {
+  const {id} = req.body;
+  const carrinho = await carrinhoController.adicionarProduto(req.session, id)
+  return res.render("carrinho", {carrinho});
 });
 
-router.get("/usuario", function (req, res) {
+router.get("/carrinho", function (req, res) {
+  const carrinho = carrinhoController.buscarCarrinho(req.session)
+  return res.render("carrinho", {carrinho});
+});
+
+router.get("/usuario", verificarUsuarioLogado, function (req, res) {
   return res.render("usuario");
 });
 

@@ -30,4 +30,3 @@ exports.listarProdutos = async() => {
 exports.buscarProdutoPorID = async(id) => {
   return Produto.findByPk(id)
 }
-

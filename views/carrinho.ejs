@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
@@ -16,41 +16,43 @@
     />
     <link rel="stylesheet" href="/stylesheets/carrinho.css" />
     <title>Meu Carrinho</title>
-</head>
-<body>
+  </head>
+  <body>
     <header><%- include("./partials/header") %></header>
-	<div class="container">
-		<h1>Carrinho</h1>
-		<div class="cart">
-			<div class="products">
-				<div class="product">
-					<img src="/images/jogo2.jpg">
-					<div class="product-info">
-						<h3 class="product-name">Jogo A</h3>
-						<h4 class="product-price">R$ 129,90</h4>
-						<p class="product-quantity">Qnt: <input value="1" name="">
-							<button class="product-remove" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>Remover</button>
-					</div>
+    <%= JSON.stringify(carrinho) %>
+    <div class="container">
+      <h1>Carrinho</h1>
+      <div class="cart">
+        <div class="products">
+          <% carrinho.items.forEach( item => { %>
+			<div class="product">
+				<img src="<%= item.imagem  %> " />
+				<div class="product-info">
+				<h3 class="product-name"><%= item.nome %> </h3>
+				<h4 class="product-price"><%=item.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
+				<p class="product-quantity">
+					Qnt: <input value="<%= item.quantidade%>" name="" />
+					<button class="product-remove" type="submit">
+					<i class="fa fa-trash" aria-hidden="true"></i>Remover
+					</button>
+				</p>
 				</div>
 			</div>
-			<div class="cart-total">
-				<p>
-					<span>Preço Total</span>
-					<span>R$ 239,80</span>
-				</p>
-				<p>
-					<span>Numero de Itens</span>
-					<span>2</span>
-				</p>
-				<a href="/checkout">Prosseguir a</a>
-			</div>
-		</div>
-	</div>
-	<footer><%- include("./partials/footer") %></footer>
-	<script>
-		localStorage.setItem("id", )
-
-		const carrinho = localStorage.getItem(id)
-	</script>
-	</body>
-	</html>
+          <% }); %>
+        </div>
+        <div class="cart-total">
+          <p>
+            <span>Preço Total</span>
+            <span><%=carrinho.getTotal().toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></span>
+          </p>
+          <p>
+            <span>Numero de Itens</span>
+            <span><%= carrinho.getTotalItems() %> </span>
+          </p>
+          <a href="/checkout">Prosseguir</a>
+        </div>
+      </div>
+    </div>
+    <footer><%- include("./partials/footer") %></footer>
+  </body>
+</html>
