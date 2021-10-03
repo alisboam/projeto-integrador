@@ -23,7 +23,11 @@ exports.buscarProduto = async (palavra) => {
 
 exports.listarProdutos = async() => {
     return Produto.findAll({
-        limit:10
+        limit:8
     })
+}
+
+exports.buscarProdutoPorID = async(id) => {
+  return Produto.findByPk(id)
 }
 

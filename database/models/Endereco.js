@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER.UNSIGNED
       },
        
-      logradouro: {
+      rua: {
         allowNull: false,
         type: DataTypes.STRING(200)
       },

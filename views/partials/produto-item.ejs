@@ -1,10 +1,10 @@
 <div class="card">
     <div class="img-card">
-      <img src="<%= produto.imagem %> " alt="" />
+      <a href="/produtos/<%= produto.id %> "><img src="<%= produto.imagem %> " alt="" /></a>
     </div>
     <div class="content">
-      <div class="title"><%= produto.nome%></div>
-      <div class="sub-title"><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></div>
+      <div class="title"><a href="/produtos/<%= produto.id %> "><%= produto.nome%></a></div>
+      <div class="sub-title"><a href="/produtos/<%= produto.id %> "><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></a></div>
       <p>
         <%=produto.descricao%>
       </p>

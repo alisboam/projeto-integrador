@@ -26,14 +26,14 @@
         <div class="desktop">
           <div class="produto">
             <div class="img-desktop">
-              <img class="img-produto" src="/images/jogo2.jpg" alt="" />
+              <img class="img-produto" src="<%= produto.imagem %>" alt="" />
             </div>
             <div class="preco-desktop">
-              <h1>Jogo A</h1>
+              <h1><%= produto.nome %></h1>
               <p class="desc-curta">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <%= produto.descricao %>
               </p>
-              <p class="preco">R$ 29,90</p>
+              <p class="preco"><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></p>
               <button class="buy" type="submit">Comprar</button>
               <form class="frete" action="" method="POST">
                 <div class="cep">
@@ -70,13 +70,7 @@
         <div class="descricao">
           <p class="titulo-info">Descricao</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            ratione quia, voluptatum, ullam quis nulla, quam id corporis impedit
-            veritatis minus at molestiae ex. Placeat molestias nulla quasi sint
-            laborum. ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            ratione quia, voluptatum, ullam quis nulla, quam id corporis impedit
-            veritatis minus at molestiae ex. Placeat molestias nulla quasi sint
-            laborum.
+            <%= produto.descricao %>
           </p>
         </div>
         </div>

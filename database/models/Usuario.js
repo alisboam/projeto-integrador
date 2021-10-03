@@ -13,11 +13,6 @@ module.exports = function (sequelize, DataTypes) {
           type: DataTypes.STRING(150)
       },
 
-      data_nascimento: {
-          allowNull: false,
-          type: DataTypes.DATE
-      },
-
       telefone: {
         allowNull: false,
         type: DataTypes.STRING(11)

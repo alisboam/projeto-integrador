@@ -3,14 +3,16 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
   
-     await queryInterface.createTable('enderecos', { id: {
+     await queryInterface.createTable('enderecos', { 
+       
+      id: {
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
       type: Sequelize.INTEGER.UNSIGNED
     },
      
-    logradouro: {
+    rua: {
       allowNull: false,
       type: Sequelize.STRING(200)
     },

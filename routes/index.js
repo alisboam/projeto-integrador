@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { validationResult } = require("express-validator");
-const produtoController = require("../controllers/ProdutoController");
 const produtosController = require("../controllers/ProdutosController");
 const enderecoController = require("../controllers/EnderecoController");
 const carrinhoController = require("../controllers/CarrinhoController");
@@ -15,6 +14,7 @@ const usuarioController = require("../controllers/UsuarioController");
 const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
+const produtoModel = require("../models/ProdutoModel")
 // const { render } = require("../app");
 // let auth = require('../validators/userValidator');
 
@@ -26,22 +26,10 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get("/produto", function (req, res) {
-  return res.render("produto");
+
+router.get("/carrinho", verificarUsuarioLogado, function (req, res) {
+  return res.render("carrinho");
 });
-
-const produtoModel = require("../models/ProdutoModel")
-
-router.get("/produtos/busca", async function (req, res) {
-    const produtos = await produtoModel.buscarProduto(req.query.q);
-    console.log(`${produtos.length} encontrados na busca`)
-    return res.render("produtos", {produtos})
-
-  // const produtos = await produtoModel.buscarProduto(req.query.q);
-  // return res.end(JSON.stringify(produtos));
-});
-
-router.get("/carrinho", verificarUsuarioLogado, carrinhoController.index);
 
 router.get("/usuario", function (req, res) {
   return res.render("usuario");
@@ -116,9 +104,26 @@ router.use("/logout", (req, res) => {
 
 router.get("/contato", contatoController.index);
 
+router.get("/produtos/:id", async function (req, res) {
+  const {id} = req.params;
+  const produto = await produtosController.buscarProdutoPorId(id);
+  console.log(id);
+  console.log(produto.preco)
+  return res.render("produto",{produto});
+});
+
 router.get("/produtos", async function (req, res) {
   const produtos = await produtosController.listarProdutos();
   return res.render("produtos", {produtos});
+});
+
+router.get("/produtos/busca", async function (req, res) {
+  const produtos = await produtoModel.buscarProduto(req.query.q);
+  console.log(`${produtos.length} encontrados na busca`)
+  return res.render("produtos", {produtos})
+
+// const produtos = await produtoModel.buscarProduto(req.query.q);
+// return res.end(JSON.stringify(produtos));
 });
 
 router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
