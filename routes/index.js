@@ -19,7 +19,6 @@ const produtoModel = require("../models/ProdutoModel")
 // let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
-const { adicionarProduto } = require("../models/CarrinhoModel"); 
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -110,19 +109,6 @@ router.use("/logout", (req, res) => {
 
 router.get("/contato", contatoController.index);
 
-router.get("/produtos/:id", async function (req, res) {
-  const {id} = req.params;
-  const produto = await produtosController.buscarProdutoPorId(id);
-  console.log(id);
-  console.log(produto.preco)
-  return res.render("produto",{produto});
-});
-
-router.get("/produtos", async function (req, res) {
-  const produtos = await produtosController.listarProdutos();
-  return res.render("produtos", {produtos});
-});
-
 router.get("/produtos/busca", async function (req, res) {
   const produtos = await produtoModel.buscarProduto(req.query.q);
   console.log(`${produtos.length} encontrados na busca`)
@@ -130,6 +116,17 @@ router.get("/produtos/busca", async function (req, res) {
 
 // const produtos = await produtoModel.buscarProduto(req.query.q);
 // return res.end(JSON.stringify(produtos));
+});
+
+router.get("/produtos/:id", async function (req, res) {
+  const {id} = req.params;
+  const produto = await produtosController.buscarProdutoPorId(id);
+  return res.render("produto",{produto});
+});
+
+router.get("/produtos", async function (req, res) {
+  const produtos = await produtosController.listarProdutos();
+  return res.render("produtos", {produtos});
 });
 
 router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
