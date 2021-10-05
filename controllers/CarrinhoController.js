@@ -13,6 +13,13 @@ function buscarItem(carrinho, id) {
   return carrinho.buscarItem(id)
 }
 
+exports.removerItemDoCarrinho = async (session, id) => {
+  const carrinho = buscarCarrinho(session);
+  carrinho.removerItem(id)
+  session.carrinho = carrinho;
+  return carrinho;
+}
+
 exports.buscarCarrinho = buscarCarrinho;
 
 exports.adicionarProduto = async (session, id) => {
@@ -26,3 +33,4 @@ exports.adicionarProduto = async (session, id) => {
   session.carrinho = carrinho;
   return carrinho;
 };
+

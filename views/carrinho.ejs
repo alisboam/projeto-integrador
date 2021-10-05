@@ -19,7 +19,6 @@
   </head>
   <body>
     <header><%- include("./partials/header") %></header>
-    <%= JSON.stringify(carrinho) %>
     <div class="container">
       <h1>Carrinho</h1>
       <div class="cart">
@@ -32,9 +31,12 @@
 				<h4 class="product-price"><%=item.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
 				<p class="product-quantity">
 					Qnt: <input value="<%= item.quantidade%>" name="" />
-					<button class="product-remove" type="submit">
-					<i class="fa fa-trash" aria-hidden="true"></i>Remover
-					</button>
+          <form action="/carrinho/removerItem" method="POST">
+            <input type="hidden" id="custId" name="id" value="<%=item.id%>">
+					  <button class="product-remove" type="submit">
+					    <i class="fa fa-trash" aria-hidden="true"></i>Remover
+					  </button>
+        </form>
 				</p>
 				</div>
 			</div>

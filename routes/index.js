@@ -27,8 +27,14 @@ router.get("/", function (req, res, next) {
 
 router.post("/carrinho", async function (req, res) {
   const {id} = req.body;
-  const carrinho = await carrinhoController.adicionarProduto(req.session, id)
-  return res.render("carrinho", {carrinho});
+  await carrinhoController.adicionarProduto(req.session, id)
+  return res.redirect("/carrinho");
+});
+
+router.post("/carrinho/removerItem", async function (req, res) {
+  const {id} = req.body;
+  await carrinhoController.removerItemDoCarrinho(req.session, id)
+  return res.redirect("/carrinho");
 });
 
 router.get("/carrinho", function (req, res) {

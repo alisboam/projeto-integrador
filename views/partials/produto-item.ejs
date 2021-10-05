@@ -1,28 +1,40 @@
 <a href="/produtos/<%= produto.id %>">
-<div class="card">
+  <div class="card">
     <div class="img-card">
-      <a href="/produtos/<%= produto.id %> "><img src="<%= produto.imagem %> " alt="" /></a>
+      <a href="/produtos/<%= produto.id %> "
+        ><img src="<%= produto.imagem %> " alt=""
+      /></a>
     </div>
     <div class="content">
-      <div class="title"><a href="/produtos/<%= produto.id %> "><%= produto.nome%></a></div>
-      <div class="sub-title"><a href="/produtos/<%= produto.id %> "><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></a></div>
-      <p>
-        <%=produto.descricao%>
-      </p>
+      <div class="title">
+        <a href="/produtos/<%= produto.id %> "><%= produto.nome%></a>
+      </div>
+      <div class="sub-title">
+        <a href="/produtos/<%= produto.id %> "
+          ><%=produto.preco.toLocaleString('pt-br',{style: 'currency', currency:
+          'BRL'})%></a
+        >
+      </div>
+      <p><%=produto.descricao%></p>
       <div class="btn">
         <form class="buy" action="/carrinho" method="POST">
           <a href="/carrinho">
-            <input type="hidden" id="custId" name="id" value="<%=produto.id%>">
+            <input
+              type="hidden"
+              id="custId"
+              name="id"
+              value="<%=produto.id%>"
+            />
 
-          <button class="icons-container" type="submit" id="mybutton-buy">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </button>
-        </a>
-        <a href="/favoritos">
-          <button class="icons-container" type="submit">
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          </button>
-        </a>
+            <button class="icons-container" type="submit" id="mybutton-buy">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </button>
+          </a>
+          <a href="/favoritos">
+            <button class="icons-container" type="submit">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </button>
+          </a>
         </form>
       </div>
     </div>
