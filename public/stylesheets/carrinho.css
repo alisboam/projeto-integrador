@@ -41,7 +41,7 @@
 	transform: scale(1.04);
 }
 .product-info{
-	padding: 20px;
+	padding-left: 20px;
 	width: 100%;
 	position: relative;
 }
@@ -57,17 +57,24 @@
 	border-radius: 5px;
 	border: none;
 }
+
 .product-remove:hover{
 	background-color: white;
 	color: #fd8415;
 	font-weight: 600;
 	border: 1px solid #fd8415;
 }
-.product-quantity > input{
+.quantity input{
 	width: 40px;
 	padding: 5px;
 	text-align: center;
 }
+
+.quantity button {
+	height: 40px;
+
+}
+
 .fa{
 	margin-right: 5px;
 }
