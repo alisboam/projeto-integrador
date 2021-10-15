@@ -27,6 +27,7 @@ router.get("/", function (req, res, next) {
 
 router.post("/carrinho", async function (req, res) {
   const {id} = req.body;
+  console.log(id, 'Estou passando pela rota');
   await carrinhoController.adicionarProduto(req.session, id)
   return res.redirect("/carrinho");
 });
@@ -136,9 +137,25 @@ router.get("/produtos", async function (req, res) {
 });
 
 router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
-router.get("/favoritos",verificarUsuarioLogado, function (req, res) {
-  return res.render("favoritos");
+// Favoritos
+router.get("/favoritos", verificarUsuarioLogado, function (req, res) {
+  const favorito = favoritosController.buscarFavorito(req.session)
+  return res.render("favoritos", {favorito});
 });
+
+
+router.post("/favoritos", async function (req, res) {
+  const {id} = req.body;
+  await favoritosController.adicionarProduto(req.session, id)
+  return res.redirect("/favoritos");
+});
+
+router.post("/favoritos/removerItem", async function (req, res) {
+  const {id} = req.body;
+  await favoritosController.removerItemDosFavoritos(req.session, id)
+  return res.redirect("/favoritos");
+});
+
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
 
