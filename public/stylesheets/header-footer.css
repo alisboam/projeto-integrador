@@ -220,7 +220,7 @@ img.logo-footer {
 
   .conta-usuario {
     display: flex;
-    flex-wrap: ;
+    flex-wrap: wrap;
   }
 
   p.login-header {
