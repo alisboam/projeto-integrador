@@ -4,6 +4,23 @@
     margin: 0;
 	box-sizing: border-box;
 }
+.wo-fav{
+	max-width: 1200px;
+	margin: 20px auto;
+	/* display: flex; */
+	text-align: center;
+	color: #0b0230;
+}
+
+.wo-fav a{
+	text-decoration: none;
+	color: #fd8415;
+}
+.wo-fav a:hover{
+	color: #0b0230;
+	text-transform: uppercase;
+
+}
 
 .container-favoritos{
 	max-width: 1200px;
@@ -67,6 +84,22 @@
 	color: #fd8415;
 	font-weight: 600;
 	border: 1px solid #fd8415;
+}
+.product-buy{
+	margin-left: 650px;
+	padding: 10px 25px;
+	background-color: #008000;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	border: none;
+}
+.product-buy:hover{
+	background-color: white;
+	color: green;
+	font-weight: 600;
+	border: 1px solid green;
+	
 }
 .product-quantity > input{
 	width: 40px;

@@ -4,34 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/carrinho.css" />
     <link rel="stylesheet" href="/stylesheets/favoritos.css" />
     <title>Favoritos</title>
   </head>
   <body>
     <header><%- include("./partials/header") %></header>
-    <div class="container-favoritos">
-      <h1>Favoritos</h1>
+    <div class="container">
+    <h1>Favoritos</h1>
+    <% if(favorito.items.length == 0){%>
+      <div class="wo-fav">
+        <h4>  Você ainda não tem favoritos. Conheça nossos <a href="/produtos">produtos</a>.</h4>
+      
+      </div>
+      <%} %> 
       <div class="cart">
         <div class="products">
+          <% favorito.items.forEach( item => { %>
           <div class="product">
-            <img src="/images/jogo9.jpg" />
+            <img src="<%= item.imagem  %> " />
             <div class="product-info">
-              <h3 class="product-name">Jogo A</h3>
-              <h4 class="product-price">R$ 129,90</h4>
-              <p class="product-quantity">
-                Qnt: <input value="1" name="" />
+              <h3 class="product-name"><%= item.nome %></h3>
+              <h4 class="product-price">
+                <%=item.preco.toLocaleString('pt-br',{style: 'currency',
+                currency: 'BRL'})%>
+              </h4>
+              <div class="quantity">
+                <form action="/favoritos" method="POST">
+                  <input
+                    type="hidden"
+                    id="custId"
+                    name="id"
+                    value="<%=item.id%>"
+                  />
+              </form>
+            </div>
+            <form action="/carrinho">
+              <input
+                  type="hidden"
+                  id="custId"
+                  name="id"
+                  value="<%=item.id%>"
+                />
+              <button class="product-buy">
+                <i class="fa fa-shopping-cart" aria-hidden="true">Comprar</i>
+              </button>
+            </form>
+              <form action="/favoritos/removerItem" method="POST">
+                <input
+                  type="hidden"
+                  id="custId"
+                  name="id"
+                  value="<%=item.id%>"
+                />
                 <button class="product-remove" type="submit">
-                  <i class="fa fa-trash" aria-hidden="true"></i>Adicionar ao Carrinho
+                  <i class="fa fa-trash" aria-hidden="true"></i>Remover
                 </button>
-              </p>
+              </form>
             </div>
           </div>
+          <% }); %>
         </div>
       </div>
+        <!-- <div class="cart-total">
+          <p>
+            <span>Preço Total</span>
+            <span
+              ><%=favorito.getTotal().toLocaleString('pt-br',{style: 'currency',
+              currency: 'BRL'})%></span
+            >
+          </p>
+          <p>
+            <span>Numero de Itens</span>
+            <span><%= favorito.getTotalItems() %> </span>
+          </p>
+          <a href="/carrinho">Adicionar Todos</a>
+        </div> -->
     </div>
-    <section>
-      <%- include("./partials/carrossel") %>
-    </section>
     <footer><%- include("./partials/footer") %></footer>
   </body>
 </html>
