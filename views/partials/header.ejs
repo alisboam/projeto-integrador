@@ -8,6 +8,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 <link rel="stylesheet" href="/stylesheets/header-footer.css">
     <title>checkm8</title>
 </head>
@@ -35,20 +37,28 @@
                     <a href="/carrinho"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                 </div>
                 </div>
-            <!-- <label id="icon-header1" for="">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </label> -->
         </div>
        
-    <nav class="nav-header">
-        <ul id="header-ul">
-            <li><a href="/inicio" class="nav-link">Inicio</a></li>
-            <li><a href="/sobre" class="nav-link">Sobre</a></li>
-            <li><a href="/produtos" class="nav-link">Produtos</a></li>
-            <li><a href="/contato" class="nav-link">Contato</a></li>
-            <li><a href="#" class="nav-link">Saiba +</a></li>
-        </ul>
-    </nav>
-        
+        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-around" id="nav-header-cm8">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/images/CheckM8.png">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse nav-header-cm8" id="navbarNav">
+                <ul class="navbar-nav p-1 flex-grow-1">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/inicio">Inicio</a>
+                    <li class="nav-item"><a href="/sobre" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="/produtos" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="/contato" class="nav-link">Contato</a></li>
+                
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/cjs/popper-base.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
 </body>
 </html>

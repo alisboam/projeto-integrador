@@ -100,18 +100,36 @@ form.form-header {
 
 /* barra nav */
 
-nav #icon-header1 {
-  display: none;
+.navbar{
+  padding: 0;
+  text-align: center;
+  justify-content: space-around;
+
+
+}
+.navbar-light {
+  background-color: #fd8415;
+
 }
 
-nav.nav-header ul#header-ul{
-  list-style-type: none;
-  background-color: #fd8415;
-  text-align: center;
-  padding: 10px 100px;
-  display: flex;
+ul {
   justify-content: space-between;
-  margin-top: 0;
+}
+
+.container-fluid {
+  text-align: center;
+
+
+}
+
+#nav-header-cm8 {
+  justify-content: space-between;
+
+  margin: 0;
+}
+
+.navbar-brand {
+  display: none;
 }
 
 .nav-link {
@@ -199,6 +217,15 @@ img.logo-footer {
 }
 
 @media (max-width: 768px) {
+
+  .conta-usuario {
+    display: flex;
+    flex-wrap: ;
+  }
+
+  p.login-header {
+    display: none;
+  }
   .icon-text {
     display: none;
   }
