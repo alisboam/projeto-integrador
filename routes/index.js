@@ -26,9 +26,9 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/carrinho", async function (req, res) {
-  const {id} = req.body;
+  const {id, quantidade} = req.body;
   console.log(id, 'Estou passando pela rota');
-  await carrinhoController.adicionarProduto(req.session, id)
+  await carrinhoController.adicionarProduto(req.session, id, quantidade)
   return res.redirect("/carrinho");
 });
 
@@ -134,6 +134,12 @@ router.get("/produtos/:id", async function (req, res) {
 router.get("/produtos", async function (req, res) {
   const produtos = await produtosController.listarProdutos();
   return res.render("produtos", {produtos});
+});
+
+router.get("/api/produtos", async function (req, res) {
+  const produtos = await produtosController.listarProdutos(parseInt(req.query.limit), parseInt(req.query.offset));
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(produtos));
 });
 
 router.get("/checkout", verificarUsuarioLogado, checkoutController.index);

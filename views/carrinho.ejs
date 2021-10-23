@@ -42,17 +42,23 @@
               </h4>
               <div class="quantity">
                 <form action="/carrinho" method="POST">
+                  <input type="hidden" id="custId" name="id" value="<%=item.id%>"/>
+                  <input type="hidden" id="quantidadeMenos" name="quantidade" value="<%=item.quantidade-1%>"/>
+                  <span>Quantidade:</span>
+                  <button class="btn minus-btn <%= item.quantidade == 1 ? 'disabled' : ''%>" type="submit">
+                    -
+                  </button>
+                </form>
+                <form action="/carrinho" method="POST">
+                  <input type="hidden" id="custId" name="id" value="<%=item.id%>"/>
+                  <input type="hidden" id="quantidadeMais" name="quantidade" value="<%=item.quantidade+1%>"/>
                   <input
-                    type="hidden"
-                    id="custId"
-                    name="id"
-                    value="<%=item.id%>"
+                    type="text"
+                    id="quantity"
+                    value="<%=item.quantidade %>"
                   />
-                <span>Quantidade:</span>
-                <button class="btn minus-btn disabled" type="submit">-</button>
-                <input type="text" id="quantity" value="1" />
-                <button class="btn plus-btn" type="submit">+</button>
-              </form>
+                  <button class="btn plus-btn" type="submit">+</button>
+                </form>
               </div>
               <form action="/carrinho/removerItem" method="POST">
                 <input

@@ -22,13 +22,15 @@ exports.removerItemDoCarrinho = async (session, id) => {
 
 exports.buscarCarrinho = buscarCarrinho;
 
-exports.adicionarProduto = async (session, id) => {
+exports.adicionarProduto = async (session, id, quantidade) => {
+  console.log(`Adicionando produto no carrinho: id=[${id}] quantidade=[${quantidade}]`);
+
   const carrinho = buscarCarrinho(session);
   const itemDoCarrinho = buscarItem(carrinho, id);
   if (!itemDoCarrinho) {
     await carrinhoModel.adicionarProduto(carrinho, id, 1);
   } else {
-    itemDoCarrinho.quantidade = itemDoCarrinho.quantidade + 1;
+    itemDoCarrinho.quantidade = parseInt(quantidade);
   }
   session.carrinho = carrinho;
   return carrinho;
