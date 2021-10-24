@@ -21,9 +21,10 @@ exports.buscarProduto = async (palavra) => {
   });
 };
 
-exports.listarProdutos = async() => {
+exports.listarProdutos = async(limit, offset) => {
     return Produto.findAll({
-        limit:8
+        limit: limit || 8,
+        offset: offset || 0
     })
 }
 
