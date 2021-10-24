@@ -41,6 +41,11 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
+
+    estoque: {
+      allowNull: false,
+      type: Sequelize.INTEGER
+    },
   },
   {
     tableName: "produtos",

@@ -43,8 +43,19 @@ router.get("/carrinho", function (req, res) {
   return res.render("carrinho", {carrinho});
 });
 
-router.get("/usuario", verificarUsuarioLogado, function (req, res) {
-  return res.render("usuario");
+router.get("/checkout", verificarUsuarioLogado, function (req, res) {
+  const carrinho = req.session.carrinho;
+  return res.render("checkout", {carrinho});
+});
+
+router.post("/checkout", function (req, res) {
+  const usuario = req.session.user;
+  const carrinho = req.session.carrinho;
+
+  console.log(JSON.stringify(usuario))
+  console.log(JSON.stringify(carrinho))
+  console.log("Pedido criado")
+  return res.render("checkout");
 });
 
 //cadastro de usuario
@@ -142,7 +153,6 @@ router.get("/api/produtos", async function (req, res) {
   res.end(JSON.stringify(produtos));
 });
 
-router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
 // Favoritos
 router.get("/favoritos", verificarUsuarioLogado, function (req, res) {
   const favorito = favoritosController.buscarFavorito(req.session)
@@ -164,6 +174,9 @@ router.post("/favoritos/removerItem", async function (req, res) {
 
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
+router.get("/usuario", verificarUsuarioLogado, function (req, res) {
+  return res.render("usuario");
+});
 
 router.get("/status", verificarUsuarioLogado, statusController.index);
 
