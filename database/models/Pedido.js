@@ -1,7 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Pedido = sequelize.define(
-    'Pedido',
-    {
+  const Pedido = sequelize.define('Pedido', {
       id: {
         primaryKey: true,
         autoIncrement: true,
@@ -9,12 +7,12 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER.UNSIGNED
       },
 
-      numero_pedido: {
+      itens: {
         allowNull: false,
-        type: DataTypes.BIGINT.UNSIGNED
+        type: DataTypes.JSON
       },
 
-      itens: {
+      endereco_entrega: {
         allowNull: false,
         type: DataTypes.JSON
       },
@@ -34,13 +32,6 @@ module.exports = function (sequelize, DataTypes) {
     Pedido.belongsTo(db.Usuario, {
       as: 'usuario',
       foreignKey: 'usuario_id'
-    })
-  }
-
-  Pedido.associate = function (db) {
-    Pedido.belongsTo(db.EnderecoEntrega, {
-      as: 'endereco_entrega',
-      foreignKey: 'endereco_entrega_id'
     })
   }
 

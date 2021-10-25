@@ -17,6 +17,11 @@ module.exports = {
           type: Sequelize.JSON
         },
 
+        endereco_entrega: {
+          allowNull: false,
+          type: Sequelize.JSON
+        },
+
         data: {
           allowNull: false,
           type: Sequelize.DATE
@@ -32,17 +37,6 @@ module.exports = {
           onUpdate: 'cascade',
           onDelete: 'cascade'
         },
-
-        endereco_entrega_id: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          allowNull: false,
-          references: {
-            model: 'endereco_entrega',
-            key: 'id'
-          },
-          onUpdate: 'cascade',
-          onDelete: 'cascade'
-        }
       },
       {
         tableName: 'pedido',

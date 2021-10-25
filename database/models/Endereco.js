@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       },
        
       rua: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.STRING(200)
       },
 

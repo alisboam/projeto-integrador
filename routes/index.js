@@ -19,6 +19,7 @@ const produtoModel = require("../models/ProdutoModel")
 // let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
+const { Pedido } = require("../database/models")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -43,19 +44,26 @@ router.get("/carrinho", function (req, res) {
   return res.render("carrinho", {carrinho});
 });
 
-router.get("/checkout", verificarUsuarioLogado, function (req, res) {
-  const carrinho = req.session.carrinho;
-  return res.render("checkout", {carrinho});
+router.get("/checkout", verificarUsuarioLogado, async function (req, res) {
+  const usuario = req.session.user;
+  const carrinho = carrinhoController.buscarCarrinho(req.session)
+  const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
+  return res.render("checkout", {carrinho, endereco, usuario});
 });
 
-router.post("/checkout", function (req, res) {
+router.post("/checkout", async function (req, res) {
   const usuario = req.session.user;
-  const carrinho = req.session.carrinho;
-
   console.log(JSON.stringify(usuario))
-  console.log(JSON.stringify(carrinho))
-  console.log("Pedido criado")
-  return res.render("checkout");
+  const carrinho = req.session.carrinho;
+  
+  // console.log(JSON.stringify(endereco))
+  // console.log(JSON.stringify(carrinho))  
+
+  const pedido = await checkoutController.fecharPedido(usuario, carrinho);
+  delete session.carrinho;
+
+  
+  return res.redirect("/status");
 });
 
 //cadastro de usuario

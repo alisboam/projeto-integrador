@@ -13,7 +13,7 @@ module.exports = {
     },
      
     rua: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.STRING(200)
     },
 
