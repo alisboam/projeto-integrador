@@ -27,15 +27,10 @@
 	border: 1px solid silver;
 	margin-bottom: 20px;
 }
-.product:hover{
-	border: none;
-	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-	transform: scale(1.01);
-}
+
 .product > img{
-	width: 300px;
 	height: 200px;
-	object-fit: cover;
+	width: 250px;
 }
 .product > img:hover{
 	transform: scale(1.04);
@@ -49,7 +44,7 @@
 	margin-bottom: 20px;
 }
 .product-remove{
-	margin-left: 450px;
+	margin-left: 300px;
 	padding: 10px 25px;
 	background-color: #fd8415;
 	color: white;
@@ -64,6 +59,11 @@
 	font-weight: 600;
 	border: 1px solid #fd8415;
 }
+
+.quant-btn {
+display: flex;
+}
+
 .quantity input{
 	width: 40px;
 	padding: 5px;
