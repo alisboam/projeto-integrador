@@ -155,7 +155,7 @@ router.get("/favoritos", verificarUsuarioLogado, async function (req, res) {
 });
 
 
-router.post("/favoritos", async function (req, res) {
+router.post("/favoritos", verificarUsuarioLogado, async function (req, res) {
   const { id } = req.session.user
   const produtoId = req.body.id;
   const favoritos = await favoritosController.addFavoritoToUser(id, produtoId)
