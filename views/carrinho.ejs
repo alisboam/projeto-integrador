@@ -29,6 +29,11 @@
     <header><%- include("./partials/header") %></header>
     <div class="container">
       <h1>Carrinho</h1>
+      <% if(carrinho.items == 0){%>
+        <div class="wo-car">
+          <h4>  Você ainda não tem produtos adicionados ao seu carrinho. Conheça nossos <a href="/produtos">produtos</a>.</h4>
+        </div>
+      <%} else {%> 
       <div class="cart">
         <div class="products">
           <% carrinho.items.forEach( item => { %>
@@ -40,6 +45,7 @@
                 <%=item.preco.toLocaleString('pt-br',{style: 'currency',
                 currency: 'BRL'})%>
               </h4>
+              <div class= quantify-button>
               <div class="quantity">
                 <form action="/carrinho" method="POST">
                   <input type="hidden" id="custId" name="id" value="<%=item.id%>"/>
@@ -72,6 +78,7 @@
                 </button>
               </form>
             </div>
+            </div>
           </div>
           <% }); %>
         </div>
@@ -90,6 +97,7 @@
           <a href="/checkout">Prosseguir</a>
         </div>
       </div>
+      <%} %> 
     </div>
     <footer><%- include("./partials/footer") %></footer>
   </body>

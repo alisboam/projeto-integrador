@@ -13,6 +13,23 @@
 .container > h1{
 	padding: 20px 0;
 }
+.wo-car{
+	max-width: 1200px;
+	margin: 20px auto;
+	/* display: flex; */
+	text-align: center;
+	color: #0b0230;
+}
+
+.wo-car a{
+	text-decoration: none;
+	color: #fd8415;
+}
+.wo-car a:hover{
+	color: #0b0230;
+	text-transform: uppercase;
+
+}
 .cart{
 	display: flex;
 }
@@ -49,7 +66,7 @@
 	margin-bottom: 20px;
 }
 .product-remove{
-	margin-left: 450px;
+	margin: 10px;
 	padding: 10px 25px;
 	background-color: #fd8415;
 	color: white;
@@ -63,6 +80,12 @@
 	color: #fd8415;
 	font-weight: 600;
 	border: 1px solid #fd8415;
+}
+.quantify-button{
+	display: flex;
+	flex-direction: initial;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .quantity input{
 	width: 40px;

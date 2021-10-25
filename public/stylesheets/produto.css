@@ -86,6 +86,13 @@ button.buy {
   font-size: 18px;
 }
 
+.fav-buy{
+  display: flex;
+  flex-direction: initial;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* firulas */
 
 button:hover {

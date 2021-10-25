@@ -26,9 +26,9 @@
             </div>
                 <div class ="msg-usuario">
                     <p class ="login-header"><% if (user) { %>
-                        Olá, <%= user.nome %> <a class="log" href="logout">logout</a>
+                        Olá, <%= user.nome %> <a class="log" href="/logout">logout</a>
                         <% } else { %>
-                            Faça seu <a class="log" href="login">login</a> ou <a class="log" href="cadastro">cadastre-se</a> 
+                            Faça seu <a class="log" href="/login">login</a> ou <a class="log" href="/cadastro">cadastre-se</a> 
                         </p>
                         <% } %>
                     <div class="icon-header">
