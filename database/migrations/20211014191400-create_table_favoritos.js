@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('favs', { 
+    await queryInterface.createTable('favoritos', { 
       id: {
         primaryKey: true,
         autoIncrement: true,
@@ -27,14 +27,14 @@ module.exports = {
       }
      },
      {
-      tableName: "favs",
+      tableName: "favoritos",
       timestamps: false
      });
    
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('favs');
+    await queryInterface.dropTable('favoritos');
     
   }
 };

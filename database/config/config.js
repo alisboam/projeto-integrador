@@ -1,12 +1,13 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "mysql123",
+    "password": "",
     "database": "checkm8",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "define": {
-      "underscored":true
+      "underscored":true,
+      "timestamps":false
     }
   },
   "test": {
