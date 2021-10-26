@@ -76,20 +76,12 @@
 	font-weight: 600;
 	border: 1px solid #fd8415;
 }
-<<<<<<< HEAD
 .quantify-button{
 	display: flex;
 	flex-direction: initial;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-=======
-
-.quant-btn {
-display: flex;
-}
-
->>>>>>> 0f4d2aff89345a73b6b67df4d1497075e3a5dc93
 .quantity input{
 	width: 40px;
 	padding: 5px;
