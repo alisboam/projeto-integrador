@@ -1,7 +1,13 @@
-const CheckoutController = {
-    index: (req, res) => {
-        return res.render("checkout")
-    }
-}
+const UsuarioModel = require("../models/UsuarioModel");
+const { Pedido } = require("../database/models")
 
-module.exports = CheckoutController;
+exports.fecharPedido = async (usuario, carrinho) => { 
+  const endereco = await UsuarioModel.buscarEnderecoUsuario(usuario.id);
+ 
+  return await Pedido.create({
+    usuario_id: usuario.id,
+    itens: carrinho.items,
+    endereco_entrega: endereco,
+    data: Date()
+  })
+}
