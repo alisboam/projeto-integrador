@@ -139,7 +139,7 @@ router.get("/contato", contatoController.index);
 router.get("/produtos/busca", async function (req, res) {
   const produtos = await produtoModel.buscarProduto(req.query.q);
   console.log(`${produtos.length} encontrados na busca`)
-  return res.render("produtos", {produtos})
+  return res.render("buscaProdutos", {produtos})
 
 // const produtos = await produtoModel.buscarProduto(req.query.q);
 // return res.end(JSON.stringify(produtos));
