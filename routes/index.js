@@ -9,6 +9,7 @@ const checkoutController = require("../controllers/CheckoutController");
 const minhaContaController = require("../controllers/MinhaContaController");
 const favoritosController = require("../controllers/FavoritosController");
 const inicioController = require("../controllers/InicioController");
+const pedidoController = require("../controllers/PedidoController")
 const sobreController = require("../controllers/SobreController");
 const usuarioController = require("../controllers/UsuarioController");
 const statusController = require("../controllers/StatusController");
@@ -182,8 +183,11 @@ router.post("/favoritos/removerItem", async function (req, res) {
 
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
-router.get("/usuario", verificarUsuarioLogado, function (req, res) {
-  return res.render("usuario");
+router.get("/usuario", verificarUsuarioLogado, async function (req, res) {
+  const usuario = req.session.user;
+  const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
+  const listaDePedidos = await pedidoController.buscarPedidosUsuario(usuario.id)
+  return res.render("usuario", {endereco, listaDePedidos});
 });
 
 router.get("/status", verificarUsuarioLogado, statusController.index);
