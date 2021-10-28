@@ -23,7 +23,7 @@ exports.buscarUsuarioPorEmail = async (email) => {
 }
 
 exports.novoEndereco = async ({
-  logradouro,
+  rua,
   numero,
   complemento,
   municipio,
@@ -34,7 +34,7 @@ exports.novoEndereco = async ({
   const usuario = await Usuario.findByPk(idUsuario)
 
   const endereco = Endereco.build({
-    logradouro,
+    rua,
     numero,
     complemento,
     municipio,
@@ -43,18 +43,11 @@ exports.novoEndereco = async ({
   });
   endereco.setUsuario(usuario)
   return await endereco.save()
-  
-  // return await Endereco.create({
-  //   logradouro,
-  //   numero,
-  //   complemento,
-  //   municipio,
-  //   estado,
-  //   cep
-  // }, {
-  //   include: [usuario]
-  // });
 }
+
+exports.buscarEnderecoUsuario = async (id) => {
+  return Endereco.findOne({ where:{ usuario_id : id}})  
+};
 
 exports.getAllUsers = () => Usuario.findAll({include: 'produtos'});
 exports.getUser = (id) => Usuario.findByPk(id, {include: 'produtos'});
@@ -72,3 +65,6 @@ exports.deletarProdutoFav = async (id, produtoId) => {
   const delFavorito = await user.removeProduto(produto.id);
   return user
 }
+
+}
+

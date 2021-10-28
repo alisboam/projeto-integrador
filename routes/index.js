@@ -19,6 +19,7 @@ const produtoModel = require("../models/ProdutoModel")
 // let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
+const { Pedido } = require("../database/models")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -43,8 +44,26 @@ router.get("/carrinho", function (req, res) {
   return res.render("carrinho", {carrinho});
 });
 
-router.get("/usuario", verificarUsuarioLogado, function (req, res) {
-  return res.render("usuario");
+router.get("/checkout", verificarUsuarioLogado, async function (req, res) {
+  const usuario = req.session.user;
+  const carrinho = carrinhoController.buscarCarrinho(req.session)
+  const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
+  return res.render("checkout", {carrinho, endereco, usuario});
+});
+
+router.post("/checkout", async function (req, res) {
+  const usuario = req.session.user;
+  console.log(JSON.stringify(usuario))
+  const carrinho = req.session.carrinho;
+  
+  // console.log(JSON.stringify(endereco))
+  // console.log(JSON.stringify(carrinho))  
+
+  const pedido = await checkoutController.fecharPedido(usuario, carrinho);
+  delete session.carrinho;
+
+  
+  return res.redirect("/status");
 });
 
 //cadastro de usuario
@@ -142,7 +161,6 @@ router.get("/api/produtos", async function (req, res) {
   res.end(JSON.stringify(produtos));
 });
 
-router.get("/checkout", verificarUsuarioLogado, checkoutController.index);
 // Favoritos
 router.get("/favoritos", verificarUsuarioLogado, async function (req, res) {
   const { id } = req.session.user
@@ -171,6 +189,9 @@ router.post("/favoritos/removerfavorito", async function (req, res) {
 
 router.get("/inicio", inicioController.index);
 router.get("/sobre", sobreController.index);
+router.get("/usuario", verificarUsuarioLogado, function (req, res) {
+  return res.render("usuario");
+});
 
 router.get("/status", verificarUsuarioLogado, statusController.index);
 
