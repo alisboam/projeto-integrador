@@ -49,6 +49,11 @@ module.exports = function (sequelize, DataTypes) {
       timestamps: false
     }
   );
-
+  Produto.associate = function (db) {
+    Produto.belongsToMany(db.Usuario, {
+      through: 'favoritos',
+      as: "usuarios"
+    });
+  }
   return Produto;
 };

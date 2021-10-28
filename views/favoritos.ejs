@@ -28,7 +28,7 @@
     <header><%- include("./partials/header") %></header>
     <div class="container">
     <h1>Favoritos</h1>
-    <% if(favorito.items.length == 0){%>
+    <% if(favoritos == 0){%>
       <div class="wo-fav">
         <h4>  Você ainda não tem favoritos. Conheça nossos <a href="/produtos">produtos</a>.</h4>
       
@@ -36,13 +36,13 @@
       <%} %> 
       <div class="cart">
         <div class="products">
-          <% favorito.items.forEach( item => { %>
+          <% favoritos.forEach(favorito => { %>
           <div class="product">
-            <img src="<%= item.imagem  %> " />
+            <img src="<%= favorito.imagem  %> " />
             <div class="product-info">
-              <h3 class="product-name"><%= item.nome %></h3>
+              <h3 class="product-name"><%= favorito.nome %></h3>
               <h4 class="product-price">
-                <%=item.preco.toLocaleString('pt-br',{style: 'currency',
+                <%=favorito.preco.toLocaleString('pt-br',{style: 'currency',
                 currency: 'BRL'})%>
               </h4>
               <div class="quantity">
@@ -51,7 +51,7 @@
                     type="hidden"
                     id="custId"
                     name="id"
-                    value="<%=item.id%>"
+                    value="<%=favorito.id%>"
                   />
               </form>
             </div>
@@ -60,18 +60,18 @@
                   type="hidden"
                   id="custId"
                   name="id"
-                  value="<%=item.id%>"
+                  value="<%=favorito.id%>"
                 />
-              <button class="product-buy">
+              <button class="product-buy" type="submit" id="mybutton-buy">
                 <i class="fa fa-shopping-cart" aria-hidden="true">Comprar</i>
               </button>
             </form>
-              <form action="/favoritos/removerItem" method="POST">
+              <form action="/favoritos/removerfavorito" method="POST">
                 <input
                   type="hidden"
                   id="custId"
                   name="id"
-                  value="<%=item.id%>"
+                  value="<%=favorito.id%>"
                 />
                 <button class="product-remove" type="submit">
                   <i class="fa fa-trash" aria-hidden="true"></i>Remover
@@ -82,20 +82,7 @@
           <% }); %>
         </div>
       </div>
-        <!-- <div class="cart-total">
-          <p>
-            <span>Preço Total</span>
-            <span
-              ><%=favorito.getTotal().toLocaleString('pt-br',{style: 'currency',
-              currency: 'BRL'})%></span
-            >
-          </p>
-          <p>
-            <span>Numero de Itens</span>
-            <span><%= favorito.getTotalItems() %> </span>
-          </p>
-          <a href="/carrinho">Adicionar Todos</a>
-        </div> -->
+        
     </div>
     <footer><%- include("./partials/footer") %></footer>
   </body>

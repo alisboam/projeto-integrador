@@ -1,4 +1,4 @@
-const { Usuario, Endereco } = require("../database/models")
+const { Usuario, Endereco, Produto } = require("../database/models")
 
 exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento, email, hash}) => {
     //gerar id???? const id = usuarios.length+1
@@ -48,3 +48,23 @@ exports.novoEndereco = async ({
 exports.buscarEnderecoUsuario = async (id) => {
   return Endereco.findOne({ where:{ usuario_id : id}})  
 };
+
+exports.getAllUsers = () => Usuario.findAll({include: 'produtos'});
+exports.getUser = (id) => Usuario.findByPk(id, {include: 'produtos'});
+
+exports.addFavoritoToUser = async (id, produtoId) => {
+  const user = await Usuario.findByPk(id);
+  const produto = await Produto.findByPk(produtoId);
+  const addProdutoFav = await user.addProduto(produto.id);
+  return user
+}
+
+exports.deletarProdutoFav = async (id, produtoId) => {
+  const user = await Usuario.findByPk(id);
+  const produto = await Produto.findByPk(produtoId);
+  const delFavorito = await user.removeProduto(produto.id);
+  return user
+}
+
+}
+

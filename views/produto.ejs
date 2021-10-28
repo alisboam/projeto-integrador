@@ -35,18 +35,31 @@
                   <%=produto.preco.toLocaleString('pt-br',{style: 'currency',
                   currency: 'BRL'})%>
                 </p>
-                <form class="buy" action="/carrinho" method="POST">
-                  <a href="/carrinho">
-                    <input
-                      type="hidden"
-                      id="custId"
-                      name="id"
-                      value="<%=produto.id%>"
-                    />
+                <div class= "fav-buy">
+                  <form class="buy" action="/carrinho" method="POST">
+                    <a href="/carrinho">
+                      <input
+                        type="hidden"
+                        id="custId"
+                        name="id"
+                        value="<%=produto.id%>"
+                      />
 
-                    <button class="buy" type="submit">Comprar</button>
+                      <button class="buy" type="submit">Comprar</button>
+                    </a>
+                  </form>
+                  <form action="/favoritos" method="POST">
+                  <a class="buy" href="/favoritos" >
+                    <button class="buy" type="submit">Favoritar</button>
+                    <input
+                        type="hidden"
+                        id="custId"
+                        name="id"
+                        value="<%=produto.id%>"
+                      />
                   </a>
                 </form>
+              </div>
                 <form class="frete" action="" method="POST">
                   <div class="cep">
                     <label for="frete">Calcule o frete</label>
