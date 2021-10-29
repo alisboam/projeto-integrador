@@ -34,6 +34,7 @@ function createPost(produto){
             ${produto.descricao}
           </p>
           <div class="btn" style= display:flex>
+          <div class="btn-cm8">
             <form class="buy" action="/carrinho" method="POST">
               <a href="/carrinho">
                 <input type="hidden" id="custId" name="id" value="${produto.id}">

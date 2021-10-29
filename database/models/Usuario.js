@@ -48,5 +48,12 @@ module.exports = function (sequelize, DataTypes) {
       });
     }
 
+    // Usuario.associate = function (db) {
+    //   Usuario.hasMany(db.Pedido, {
+    //     as: "pedido",
+    //     foreignKey: "pedido_id"
+    //   })
+    // }
+
     return Usuario;
 }

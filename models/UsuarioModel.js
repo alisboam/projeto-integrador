@@ -65,3 +65,6 @@ exports.deletarProdutoFav = async (id, produtoId) => {
   const delFavorito = await user.removeProduto(produto.id);
   return user
 }
+
+}
+

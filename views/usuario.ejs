@@ -6,55 +6,61 @@
   <body>
     <header><%- include("./partials/header") %></header>
     <main>
-      <div class="painel-status">
-      <div class="status-pedidos">
-        <div class="dados-cadastro">
+      <div class="dados-pedidos">
+          <div class="dados-pessoais">
           <p class="titulo">Dados pessoais  <i class="fa fa-user" aria-hidden="true"></i></p>
-          <div class="dado1">
-          Nome: <%= user.nome %> 
+            <span>
+            Nome: <%= user.nome %></span> 
+            <span>
+            e-mail:<%= user.email %></span> 
+            <span>
+            Cpf: <%= user.cpf %></span> 
+            <span>
+            Telefone: <%= user.telefone %></span>
         </div>
-          <div class="dado1">
-          e-mail:<%= user.email %> 
-        </div>
-          <div class="dado1">
-          Cpf:
-        </div>
-          <div class="dado1">
-          Telefone:
-        </div>
-        <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
-        <div class="dado1">
-            Rua:
+        <div class="dados-pessoais">
+          <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
+          <span>
+            Rua: <%= endereco.rua %></span>
+            <span>
+            Numero: <%= endereco.numero %></span>
+            <span>
+            Complemento: <%= endereco.complemento %></span>
+            <span>
+            Cep: <%= endereco.cep %></span>
+            <span>
+            Cidade: <%= endereco.municipio %></span>
+            <span>
+            Estado: <%= endereco.estado %></span>
           </div>
-          <div class="dado1">
-            Numero: 
-          </div>
-          <div class="dado1">
-            Complemento:
-          </div>
-          <div class="dado1">
-            Cep:
-          </div>
-          <div class="dado1">
-            Cidade:
-          </div>
-          <div class="dado1">
-            Estado:
-          </div>
-        </div>  
-      <div class=dados-cadastro>
+      <div class="dados-pessoais">
         <p class="titulo"> meus pedidos <i class="fa fa-gift" aria-hidden="true"></i>
         </p>
-       <div>xxxxxxxxxxxx</div>
+        <!-- <% listaDePedidos.forEach(pedido => { %> -->
+          <ul>
+            <li class="lista-pedidos">
+              <span class="idPedido">
+              Pedido: <%= pedido.id %></span>
+              <span>
+              Data: <%= pedido.data.toLocaleDateString('pt-br') %></span>
+            </li>
+        </ul>
+          <!-- <% }); %> -->
+        </div>
       </div>
-    </div>
-       <div class=btns>
-      <button class="btn-1" type="submit">sair</button>
-      <button class="btn-1" type="submit">editar</button>
+      <div class=btns>
+        <form action="/logout" method="POST">
+          <button class="btn-1" type="submit">sair</button>
+        </form>
+        <button class="btn-1" type="submit">editar</button>
+        <form action="/produtos" method="GET">
       <button class="btn-1" type="submit">prosseguir</button>
-
-    </div>
+    </form>
     </main>
     <footer><%- include("./partials/footer") %></footer>
+    <script>
+      const utcDate = pedido.data; 
+      const localDate = new Date(utcDate);
+    </script>
   </body>
 </html>

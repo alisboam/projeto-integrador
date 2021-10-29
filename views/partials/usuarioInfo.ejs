@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="/stylesheets/usuarioInfo.css" />
+    <title>checkm8</title>
+  </head>
+  <body>
+    <div class="usuarioInfo">
+        <div class="dados-cadastro">
+          <p class="titulo">Dados pessoais  <i class="fa fa-user" aria-hidden="true"></i></p>
+          <div class="dado1">
+            Nome: <%= user.nome %> 
+        </div>
+          <div class="dado1">
+          e-mail:<%= user.email %>  
+        </div>
+          <div class="dado1">
+          Cpf: <%= user.cpf %>  
+        </div>
+          <div class="dado1">
+          Telefone: <%= user.telefone %> 
+        </div>
+      </div> 
+      <div class="dados-cadastro">
+        <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
+        <div class="dado1">
+            Rua: <%= endereco.rua %> 
+          </div>
+          <div class="dado1">
+            Numero: <%= endereco.numero %>  
+          </div>
+          <div class="dado1">
+            Complemento: <%= endereco.complemento %>  
+          </div>
+          <div class="dado1">
+            Cep: <%= endereco.cep %> 
+          </div>
+          <div class="dado1">
+            Cidade: <%= endereco.municipio %> 
+          </div>
+          <div class="dado1">
+            Estado: <%= endereco.estado %> 
+          </div>
+        </div> 
+      </div>
+  </body>

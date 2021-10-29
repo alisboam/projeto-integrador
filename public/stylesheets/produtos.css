@@ -24,7 +24,7 @@ h2.barra {
 }
 
 .img-card img {
-  height: 200px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
@@ -70,7 +70,7 @@ button.icons-container {
 
 .btn-cm8 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 form.buy {
@@ -93,6 +93,11 @@ form.buy {
   transform: scale(0.9);
 }
 
+#more {
+  background: #fd8415;
+  
+}
+
 div.content-products {
   max-width: 1200px;
   justify-content: center;
@@ -106,6 +111,7 @@ div.content-products {
 #icon {
   display: none;
 }
+
 
 /* responsividade */
 
