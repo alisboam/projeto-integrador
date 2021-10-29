@@ -2,6 +2,8 @@ const verMaisBtn = document.getElementById("more");
 const produtoContainer = document.getElementsByClassName("content-products");
 const pageSize = 8;
 let currentOffset = 0;
+const favBtn = document.getElementsByClassName("fa fa-heart");
+
 
 verMaisBtn.addEventListener('click', function() {
   fetchProducts();
@@ -9,6 +11,7 @@ verMaisBtn.addEventListener('click', function() {
 
 window.addEventListener('load', function() {
   fetchProducts();
+
 })
 
 async function listarProdutos() {
@@ -30,6 +33,7 @@ function createPost(produto){
           <p>
             ${produto.descricao}
           </p>
+          <div class="btn" style= display:flex>
           <div class="btn-cm8">
             <form class="buy" action="/carrinho" method="POST">
               <a href="/carrinho">
@@ -39,8 +43,11 @@ function createPost(produto){
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               </button>
             </a>
+            </form>
+            <form class="buy" action="/favoritos" method="POST">
             <a href="/favoritos">
-              <button class="icons-container" type="submit">
+              <input type="hidden" id="custId" name="id"  value="${produto.id}">
+              <button class="icons-container" onclick="Fav()" type="submit" id="mybuttonFav">
                 <i class="fa fa-heart" aria-hidden="true"></i>
               </button>
             </a>
@@ -63,3 +70,30 @@ async function fetchProducts() {
   }
 }
 
+
+
+// window.addEventListener("load", () => {
+//   let favBtn = document.getElementById("mybuttonFav");
+//   console.log(favBtn);
+//   //   document.querySelector("main").innerHTML += createFav(produto);
+//   //   // favBtn.insertAdjacentElement('beforebegin', postfav)
+//   // setTimeout(() => {
+//     //   const favcard = document.getElementsByClassName("create-favcard")
+//     //   favcard.remove()
+//     // }, 3000);
+//     favBtn.onclick = function(){
+//       alert('Produto Adicionado')
+
+//     }
+// })
+
+// const addFav = (usuario) =>{
+
+// }
+function Fav(alert){
+ if (alert == true){
+  alert('Produto Adicionado')
+ }
+
+
+}
