@@ -133,7 +133,8 @@ router.get("/produtos/:id", async function (req, res) {
 
 router.get("/produtos", async function (req, res) {
   const produtos = await produtosController.listarProdutos();
-  return res.render("produtos", {produtos});
+  const usuario = req.session.user
+  return res.render("produtos", {produtos, usuario, alert: false});
 });
 
 router.get("/api/produtos", async function (req, res) {
@@ -159,7 +160,8 @@ router.post("/favoritos", verificarUsuarioLogado, async function (req, res) {
   const { id } = req.session.user
   const produtoId = req.body.id;
   const favoritos = await favoritosController.addFavoritoToUser(id, produtoId)
-  return res.redirect("/favoritos");
+  return res.render("produtos", {alert: true})
+  // return res.redirect("/favoritos");
 });
 
 router.post("/favoritos/removerfavorito", async function (req, res) {

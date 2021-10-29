@@ -1,4 +1,4 @@
-const { Usuario, Endereco } = require("../database/models")
+const { Usuario, Endereco, Produto } = require("../database/models")
 
 exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento, email, hash}) => {
     //gerar id???? const id = usuarios.length+1
