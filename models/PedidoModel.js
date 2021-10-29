@@ -1,4 +1,6 @@
-const Pedido = require("../database/models")
+const { Pedido } = require("../database/models")
 
 
-// exports.criarPedido = () => 
+exports.buscarPedidosUsuario = async (id) => {
+  return Pedido.findAll({ where:{ usuario_id : id}})  
+};
