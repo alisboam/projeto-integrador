@@ -104,6 +104,15 @@ body{
 
 
 /* CATEGORIAS DE PRODUTOS */
+
+.categorias{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 .todas-categorias {
   display: flex;
   flex-wrap: wrap;
@@ -112,38 +121,76 @@ body{
   text-transform: uppercase;
   justify-content: center;
   align-items: center;
+  width: 900
+px
+;
 }
-.classes a {
+/* .classes a {
   background-size: cover;
   color:#fff;
   padding: 40px 20px;
-}
+} */
 
 .classes{
 margin: 40px 20px;
 padding: 20px;
 }
 
-.classe-jogo1{
-  background-image: url("/images/galera.jpg");
+.bc-classe1{
+  background-image: url("/images/ellicia-rMm0dChKUaI-unsplash.jpg");
+  width: 400px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.7;
+  display: flex;
+}
+.bc-classe1 a, .bc-classe2 a, .bc-classe3 a, .bc-classe4 a{
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  align-items: center;
+  color:#fff;
 }
 
-.classe-jogo2{
-  background-image: url("/images/infantil.jpg");
+.bc-classe2{
+  background-image: url("/images/la-rel-easter-KuCGlBXjH_o-unsplash.jpg");
+  width: 400px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.7;
-}
-
-.classe-jogo3{
-  background-image: url("/images/jogo3.jpg");
-  opacity: 0.7;
-}
-
-.classe-jogo4{
-  background-image: url("/images/jogo5.jpg");
-  opacity: 0.7;
+  display: flex;
 
 }
+
+.bc-classe3{
+  background-image: url("/images/randy-fath-G1yhU1Ej-9A-unsplash\ \(1\).jpg");
+  width: 400px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  display: flex;
+
+}
+
+.bc-classe4{
+  background-image: url("/images/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg");
+  width: 400px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  display: flex;
+
+}
+
+
 .classes a:hover {
   opacity: 1.0;
 }
