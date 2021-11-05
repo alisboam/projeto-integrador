@@ -130,6 +130,10 @@ form.buy {
 .owl-dot:hover{
   background: #fd8415!important;
 }
+.btn-cm8{
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 768px) {
   .carousel{

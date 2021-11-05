@@ -20,18 +20,18 @@
         </div>
         <div class="dados-pessoais">
           <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
-          <span>
-            Rua: <%= endereco.rua %></span>
+          <span> 
+            Rua: <% (endereco == null) ? "cadastrar endereço" : endereco.rua %></span>
             <span>
-            Numero: <%= endereco.numero %></span>
+            Numero: <% !endereco ? "sem endereço" : endereco.numero %></span>
             <span>
-            Complemento: <%= endereco.complemento %></span>
+            Complemento: <% !endereco ? "sem endereço" : endereco.complemento %></span>
             <span>
-            Cep: <%= endereco.cep %></span>
+            Cep: <% !endereco ? "sem endereço" : endereco.cep %></span>
             <span>
-            Cidade: <%= endereco.municipio %></span>
+            Cidade: <% !endereco ? "sem endereço" : endereco.municipio %></span>
             <span>
-            Estado: <%= endereco.estado %></span>
+            Estado: <% !endereco ? "sem endereço" : endereco.estado %></span>
           </div>
       <div class="dados-pessoais">
         <p class="titulo"> meus pedidos <i class="fa fa-gift" aria-hidden="true"></i>
