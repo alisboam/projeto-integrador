@@ -15,16 +15,20 @@ const usuarioController = require("../controllers/UsuarioController");
 const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
-const produtoModel = require("../models/ProdutoModel")
+const produtoModel = require("../models/ProdutoModel");
+
 // const { render } = require("../app");
 // let auth = require('../validators/userValidator');
 
 const verificarUsuarioLogado = require("../middlewares/usuarioLogado");
+const enderecoCadastro = require("../middlewares/enderecoCadastro");
 const { Pedido } = require("../database/models")
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("inicio", { title: "Inicio" });
+router.get("/", async function (req, res, next) {
+  const produtos = await produtosController.listarProdutos(5, 0)
+
+  res.render("inicio", { title: "Inicio", produtos });
 });
 
 router.post("/carrinho", async function (req, res) {
@@ -45,7 +49,7 @@ router.get("/carrinho", function (req, res) {
   return res.render("carrinho", {carrinho});
 });
 
-router.get("/checkout", verificarUsuarioLogado, async function (req, res) {
+router.get("/checkout", verificarUsuarioLogado, enderecoCadastro, async function (req, res) {
   const usuario = req.session.user;
   const carrinho = carrinhoController.buscarCarrinho(req.session)
   const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
@@ -107,8 +111,9 @@ router.get("/enderecos", function (req, res) {
 
 router.post("/enderecos", function (req, res) {
   const address = req.body;
-  address.idUsuario = req.session.user.id
-  enderecoController.cadastrarEndereco(address)
+  const idUsuario = req.session.user.id
+  enderecoController.cadastrarEndereco(address, idUsuario)
+  console.log(address, idUsuario, enderecoController, "rota")
   return res.redirect("produtos");
 });
 
@@ -145,10 +150,28 @@ router.get("/produtos/busca", async function (req, res) {
 // return res.end(JSON.stringify(produtos));
 });
 
+router.get("/produtos/categoria", async function (req, res) {
+  const { categoria } = req.query
+  console.log(categoria)
+  if (categoria == "todos"){
+  return res.redirect("/produtos")
+  } 
+
+  const produtos = await produtosController.buscarProdutoCategoria(categoria);
+  
+  
+  return res.render("categoriaProdutos", {produtos, categoria})
+
+// const produtos = await produtoModel.buscarProduto(req.query.q);
+// return res.end(JSON.stringify(produtos));
+});
+
 router.get("/produtos/:id", async function (req, res) {
   const {id} = req.params;
   const produto = await produtosController.buscarProdutoPorId(id);
-  return res.render("produto",{produto});
+  const produtos = await produtosController.listarProdutos(5, 0)
+
+  return res.render("produto",{produto, produtos});
 });
 
 router.get("/produtos", async function (req, res) {
@@ -156,6 +179,7 @@ router.get("/produtos", async function (req, res) {
   const usuario = req.session.user
   return res.render("produtos", {produtos, usuario, alert: false});
 });
+
 
 router.get("/api/produtos", async function (req, res) {
   const produtos = await produtosController.listarProdutos(parseInt(req.query.limit), parseInt(req.query.offset));
@@ -167,9 +191,9 @@ router.get("/api/produtos", async function (req, res) {
 router.get("/favoritos", verificarUsuarioLogado, async function (req, res) {
   const { id } = req.session.user
   const usuario = await favoritosController.getUser(id)
-  console.log(usuario)
+  
   const favoritos = usuario.produtos
-  console.log(favoritos)
+  
 
   return res.render("favoritos", {favoritos});
 });
@@ -190,7 +214,13 @@ router.post("/favoritos/removerfavorito", async function (req, res) {
   return res.redirect("/favoritos");
 });
 
-router.get("/inicio", inicioController.index);
+// router.get("/inicio", inicioController.index);
+router.get("/inicio", async function (req, res) {
+  // const produtos = await inicioController.ProdutosInicio();
+  const produtos = await produtosController.listarProdutos(5, 0)
+   // const usuario = req.session.user
+  return res.render("inicio", {produtos});
+});
 router.get("/sobre", sobreController.index);
 router.get("/usuario", verificarUsuarioLogado, async function (req, res) {
   const usuario = req.session.user;

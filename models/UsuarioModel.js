@@ -66,5 +66,3 @@ exports.deletarProdutoFav = async (id, produtoId) => {
   return user
 }
 
-}
-

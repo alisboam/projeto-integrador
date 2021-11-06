@@ -21,11 +21,30 @@ exports.buscarProduto = async (palavra) => {
   });
 };
 
+exports.buscarProdutoCategoria = async (palavra) => {
+  return Produto.findAll({
+    where: {
+      
+        categoria: {
+          [Op.like]: `%${palavra}%`,
+        },
+      }
+  
+});
+};
+
 exports.listarProdutos = async(limit, offset) => {
     return Produto.findAll({
-        limit: limit || 8,
+        limit: limit || 4,
         offset: offset || 0
     })
+}
+
+exports.ProdutosInicio = async(limit, offset) => {
+  return Produto.findAll({
+      limit: limit || 5,
+      
+  })
 }
 
 exports.buscarProdutoPorID = async(id) => {

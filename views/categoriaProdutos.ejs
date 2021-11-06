@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/header-footer.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/produtos.css" />
+  </head>
+  <body>
+    <header><%- include("./partials/header") %></header>
+    <main>
+        
+      <h2 class="barra">Produtos</h2>
+      <div>
+          
+        <div class="form-group col-md-4">
+          <form action="/produtos/categoria" method="GET">
+          <!-- <label for="inputState">Categoria</label> -->
+          <select id="inputState" class="form-control" name="categoria">
+            <option selected>Selecionar Categoria...</option>
+            <option id="galeria"  value= "galera" <%=categoria == "galera" ? "selected" : null %>>Galera</option>
+            <option value= "infantil" <%=categoria == "infantil" ? "selected" : null %>>Infantil</option>
+            <option value= "estrategia" <%=categoria == "estrategia" ? "selected" : null %>>Estratégia</option>
+            <option value= "familia" <%=categoria == "familia" ? "selected" : null %>>Família</option>
+            <option value= "todos">Exibir todos</option>
+          </select>
+          <button type="submit" >Enviar</button>
+        </form>
+        </div>
+      </div>
+      <% if (produtos.length == 0) { %>
+        <div class="alert alert-danger" role="alert">
+          <p>Em breve adicionaremos produtos nessa categoria.</p>
+        </div>
+      <% } %>
+      <div class="content-products">
+        <!-- card de produto -->
+        <% produtos.forEach(produto => { %> <%-
+        include("./partials/produto-item", {produto}) %> <% }); %>
+      </div>
+    </main>
+    <footer><%- include("./partials/footer") %></footer>
+    <script type="text/javascript">
+      document.getElementById("mybutton-buy").onclick = function () {
+        location.href = "/carrinho";
+      };
+    </script>
+  </body>
+</html>

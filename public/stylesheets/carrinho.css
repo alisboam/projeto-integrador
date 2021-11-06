@@ -103,6 +103,8 @@
 	height: 240px;
 	border: 1px solid silver;
 	border-radius: 5px;
+	position:sticky;
+	top: 0
 }
 .cart-total p{
 	display: flex;
