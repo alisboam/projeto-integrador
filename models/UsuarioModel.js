@@ -28,9 +28,8 @@ exports.novoEndereco = async ({
   complemento,
   municipio,
   estado,
-  cep,
-  idUsuario
-}) => {
+  cep
+}, idUsuario) => {
   const usuario = await Usuario.findByPk(idUsuario)
 
   const endereco = Endereco.build({
