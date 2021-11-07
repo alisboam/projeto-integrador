@@ -5,5 +5,5 @@ exports.buscarPedidosUsuario = async id => {
 }
 
 exports.buscarPedido = async (idPedido, idUsuario) => {
-  return Pedido.findAll({ where: { id: idPedido, usuario_id: idUsuario } })
+  return Pedido.findOne({ where: { id: idPedido, usuario_id: idUsuario } })
 }

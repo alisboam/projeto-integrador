@@ -1,13 +1,13 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/stylesheets/status.css" />
-    <title>Favoritos</title>
+    <title>Status do Pedido</title>
   </head>
   <body>
     <header><%- include("./partials/header") %></header>
     <div class="container-status">
       <div class="pedido-numero">
-        <p>pedido numero xxx</p>
+        <p>Pedido número <%= pedido.id%></p>
       </div>
       <div class="progressbar">
         <div class="progress" id="progress"></div>
@@ -21,22 +21,36 @@
         <div class="progress-step" data-title="entregue"></div>
       </div>
       <section class="pedidos-trocas">
-      <div class="pedido-detalhes">
+        <div class="pedido-detalhes">
           <p class="status">detalhes do pedido</p>
           <div class="pedidos-quantidade">
-            <% pedido.forEach(item => { %>
-          <span><%= item.nome %> </span>
-          <% console.log(item.itens.nome)%>
-          <span><%= item.preco %></span>
-          <span><%= item.quantidade %></span>
-          <% }); %>
-        </div>
+            <table class="table">
+              <tr>
+                <td>Nome</td>
+                <td>Preço</td>
+                <td>Quantidade</td>
+              </tr>
+              <% pedido.itens.forEach(item => { %>
+                  <tr>
+                    <td>
+                      <%= item.nome %> 
+                    </td>
+                    <td>
+                      <%= item.preco %> 
+                    </td>
+                    <td>
+                      <%= item.quantidade %> 
+                    </td>
+                  </tr>
+                  <% }); %>
+                </table>
           </div>
-      <div class="contact">
-        <p class="status">precisa de ajuda?</p>
-        <a href="">trocar ou devolver</a>
-      </div>
-    </section>
+        </div>
+        <div class="contact">
+          <p class="status">precisa de ajuda?</p>
+          <a href="">trocar ou devolver</a>
+        </div>
+      </section>
     </div>
     <footer><%- include("./partials/footer") %></footer>
   </body>
