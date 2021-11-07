@@ -81,9 +81,14 @@
 
   .pedidos-quantidade {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       padding: 10px;
-      width: 50%;
+  }
+
+  .table {
+    padding: 20px 100px;
+    column-width: 50px;
+    border: 1px solid #c4c4c4;
   }
 
   p.status {
