@@ -12,7 +12,6 @@ const inicioController = require("../controllers/InicioController");
 const pedidoController = require("../controllers/PedidoController")
 const sobreController = require("../controllers/SobreController");
 const usuarioController = require("../controllers/UsuarioController");
-const statusController = require("../controllers/StatusController");
 const session = require("express-session");
 const cadastroValidators = require("../validators/userValidator");
 const produtoModel = require("../models/ProdutoModel");
@@ -231,14 +230,16 @@ router.get("/usuario", verificarUsuarioLogado, async function (req, res) {
   return res.render("usuario", {enderecos, listaDePedidos});
 });
 
-router.get("/status", verificarUsuarioLogado, statusController.index);
+router.get("/status", verificarUsuarioLogado, function (req, res) {
+  return res.render("status")
+});
 
 router.get("/entrega", verificarUsuarioLogado, enderecoCadastro, async function (req, res) {
   const usuario = req.session.user;
-  const carrinho = carrinhoController.buscarCarrinho(req.session)
   const enderecos = await enderecoController.buscarEnderecoUsuario(usuario.id);
-  return res.render("entrega", {carrinho, enderecos, usuario});
+  return res.render("entrega", {enderecos, usuario});
 });
+
 router.get("/api/endereco", async function (req, res) {
   const usuario = req.session.user;
 

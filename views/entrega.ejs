@@ -19,82 +19,15 @@
       <div class="py-2 text-center">
         <h2>Dados para Entrega</h2>
         </div>
-      <div class="row g-5">
-        <div class="col-md-5 col-lg-4 order-md-last">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span>Resumo do Pedido</span>
-            <span class="badge bg-primary rounded-pill"><%= carrinho.getTotalItems() %></span>
-          </h4>
-          <% carrinho.items.forEach(item => { %>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0"><%= item.nome %></h6>
-              </div>
-              <span class="text-muted"><%= item.preco.toLocaleString('pt-br',{style: 'currency',
-                currency: 'BRL'})%></span>
-            </li>
-            <% }); %>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">CUPOM</h6>
-                <small>FRETE GRÁTIS</small>
-              </div>
-              <span class="text-success">0,00</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total</span>
-              <strong><%= carrinho.getTotal().toLocaleString('pt-br',{style: 'currency',
-                currency: 'BRL'}) %></strong>
-            </li>
-          </ul>
-          <form action="/checkout" class="card p-2" method="POST">
-          <button type="submit" class="btn">Finalizar compra</button></form>
-        </div>
-<!-- 
-        <div class="col-md-9 col-lg-8">
-          <h4 class="mb-3">Dados pessoais </h4>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <div class="usuarioInfo">
-                  <div class="dados-cadastro">
-                    <div class="dado1">
-                      Nome: <%= user.nome %> 
-                  </div>
-                    <div class="dado1">
-                    e-mail:<%= user.email %>  
-                  </div>
-                    <div class="dado1">
-                    Cpf: <%= user.cpf %>  
-                  </div>
-                    <div class="dado1">
-                    Telefone: <%= user.telefone %> 
-                  </div>
-                </div> 
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <div class="col-md-9 col-lg-8">
-        
-        <div class="row gy-3 p-3">
-          
-
-          
-
+  
           <div class="col-md-4">
             
             <div class="row g-3">
               <%- include("./partials/usuarioInfo") %>
             </div> 
-          </div>
-
-          
-        </div>
-              </div>
-        </div>
-      </div>
+            <form action="/checkout" class="card p-2" method="GET">
+            <button type="submit" class="btn">Finalizar compra</button></form>
+    
     </div>
   
     </main>
