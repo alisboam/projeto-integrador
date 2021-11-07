@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <title>checkout</title>
+</head>
+
+<body>
+  <header><%- include("./partials/header") %></header>
+  <main>
+    <div class="container">
+      <div class="py-2 text-center">
+        <h2>Dados para Entrega</h2>
+        </div>
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span>Resumo do Pedido</span>
+            <span class="badge bg-primary rounded-pill"><%= carrinho.getTotalItems() %></span>
+          </h4>
+          <% carrinho.items.forEach(item => { %>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0"><%= item.nome %></h6>
+              </div>
+              <span class="text-muted"><%= item.preco.toLocaleString('pt-br',{style: 'currency',
+                currency: 'BRL'})%></span>
+            </li>
+            <% }); %>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">CUPOM</h6>
+                <small>FRETE GRÁTIS</small>
+              </div>
+              <span class="text-success">0,00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total</span>
+              <strong><%= carrinho.getTotal().toLocaleString('pt-br',{style: 'currency',
+                currency: 'BRL'}) %></strong>
+            </li>
+          </ul>
+          <form action="/checkout" class="card p-2" method="POST">
+          <button type="submit" class="btn">Finalizar compra</button></form>
+        </div>
+<!-- 
+        <div class="col-md-9 col-lg-8">
+          <h4 class="mb-3">Dados pessoais </h4>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="usuarioInfo">
+                  <div class="dados-cadastro">
+                    <div class="dado1">
+                      Nome: <%= user.nome %> 
+                  </div>
+                    <div class="dado1">
+                    e-mail:<%= user.email %>  
+                  </div>
+                    <div class="dado1">
+                    Cpf: <%= user.cpf %>  
+                  </div>
+                    <div class="dado1">
+                    Telefone: <%= user.telefone %> 
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-md-9 col-lg-8">
+        
+        <div class="row gy-3 p-3">
+          
+
+          
+
+          <div class="col-md-4">
+            
+            <div class="row g-3">
+              <%- include("./partials/usuarioInfo") %>
+            </div> 
+          </div>
+
+          
+        </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  
+    </main>
+<footer><%- include("./partials/footer") %></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
