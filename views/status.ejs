@@ -24,9 +24,12 @@
       <div class="pedido-detalhes">
           <p class="status">detalhes do pedido</p>
           <div class="pedidos-quantidade">
-          <span>jogo A </span>
-          <span>R$299,90</span>
-          <span>quant: 1</span>
+            <% pedido.forEach(item => { %>
+          <span><%= item.nome %> </span>
+          <% console.log(item.itens.nome)%>
+          <span><%= item.preco %></span>
+          <span><%= item.quantidade %></span>
+          <% }); %>
         </div>
           </div>
       <div class="contact">

@@ -65,15 +65,24 @@ router.post("/checkout", async function (req, res) {
 
   const pedido = await checkoutController.fecharPedido(usuario, carrinho);
   delete session.carrinho;
-
   
-  return res.redirect("/status");
+  return res.redirect(`/pedido/status/${pedido.id}`);
+});
+
+
+router.get("/pedido/status/:id", verificarUsuarioLogado, async function (req, res) {
+  const idPedido = req.params.id;
+  const usuario = req.session.user;
+  const pedido = await pedidoController.buscarPedido(idPedido, usuario.id)
+  console.log(pedido)
+  return res.render("status", {pedido})
 });
 
 //cadastro de usuario
 router.get("/cadastro", function (req, res, next) {
   return res.render("cadastro", {errors: null, cadastro: {}});
 });
+
 
 router.post("/cadastro", cadastroValidators, async (req, res) => {
   const errors = validationResult(req);
@@ -230,9 +239,6 @@ router.get("/usuario", verificarUsuarioLogado, async function (req, res) {
   return res.render("usuario", {enderecos, listaDePedidos});
 });
 
-router.get("/status", verificarUsuarioLogado, function (req, res) {
-  return res.render("status")
-});
 
 router.get("/entrega", verificarUsuarioLogado, enderecoCadastro, async function (req, res) {
   const usuario = req.session.user;
