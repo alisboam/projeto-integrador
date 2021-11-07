@@ -152,6 +152,7 @@ padding: 20px;
   width: 400px;
   align-items: center;
   color:#fff;
+  
 }
 
 .bc-classe2{
@@ -191,10 +192,13 @@ padding: 20px;
 }
 
 
-.classes a:hover {
+.bc-classe1:hover, .bc-classe2:hover, .bc-classe3:hover, .bc-classe4:hover {
   opacity: 1.0;
 }
 
+.bc-classe1 a:hover, .bc-classe2 a:hover, .bc-classe3 a:hover, .bc-classe4 a:hover {
+  color: #0b0230;
+}
 
 /* responsividade */
 

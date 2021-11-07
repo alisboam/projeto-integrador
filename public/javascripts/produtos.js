@@ -17,6 +17,7 @@ window.addEventListener('load', function() {
 async function listarProdutos() {
   return await fetch(`http://localhost:3000/api/produtos?limit=${pageSize}&offset=${currentOffset}`)
     .then(response => {
+      
       return response.json()
     });
 }

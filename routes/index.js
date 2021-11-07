@@ -52,7 +52,7 @@ router.get("/carrinho", function (req, res) {
 router.get("/checkout", verificarUsuarioLogado, enderecoCadastro, async function (req, res) {
   const usuario = req.session.user;
   const carrinho = carrinhoController.buscarCarrinho(req.session)
-  const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
+  const endereco = await enderecoController.buscarEnderecoUsuario(usuario.id);
   return res.render("checkout", {carrinho, endereco, usuario});
 });
 
@@ -222,13 +222,36 @@ router.get("/inicio", async function (req, res) {
   return res.render("inicio", {produtos});
 });
 router.get("/sobre", sobreController.index);
+
 router.get("/usuario", verificarUsuarioLogado, async function (req, res) {
   const usuario = req.session.user;
-  const endereco = await usuarioController.buscarEnderecoUsuario(usuario.id);
+  const enderecos = await enderecoController.buscarEnderecoUsuario(usuario.id);
+  
   const listaDePedidos = await pedidoController.buscarPedidosUsuario(usuario.id)
-  return res.render("usuario", {endereco, listaDePedidos});
+  return res.render("usuario", {enderecos, listaDePedidos});
 });
 
 router.get("/status", verificarUsuarioLogado, statusController.index);
 
+router.get("/entrega", verificarUsuarioLogado, enderecoCadastro, async function (req, res) {
+  const usuario = req.session.user;
+  const carrinho = carrinhoController.buscarCarrinho(req.session)
+  const enderecos = await enderecoController.buscarEnderecoUsuario(usuario.id);
+  return res.render("entrega", {carrinho, enderecos, usuario});
+});
+router.get("/api/endereco", async function (req, res) {
+  const usuario = req.session.user;
+
+  const enderecos = await enderecoController.buscarEnderecoUsuario(req.query.usuarioId);
+  console.log(enderecos)
+  const enderecoBuscado = await enderecos.find(req.query.id)
+  console.log(enderecoBuscado)
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(enderecoBuscado));
+});
+router.get("/api/produtos", async function (req, res) {
+  const produtos = await produtosController.listarProdutos(parseInt(req.query.limit), parseInt(req.query.offset));
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(produtos));
+});
 module.exports = router;

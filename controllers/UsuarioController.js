@@ -47,6 +47,3 @@ exports.efetuarLogin = async({ senha, email }) => {
   throw new Error('Falha no login');
 };
 
-exports.buscarEnderecoUsuario = async (id) => { 
-  return await UsuarioModel.buscarEnderecoUsuario(id)
-};

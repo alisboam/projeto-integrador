@@ -1,4 +1,6 @@
-const { Usuario, Endereco, Produto } = require("../database/models")
+const { Usuario, Endereco, Produto } = require("../database/models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 exports.novoUsuario = async ({nome, numero_documento, telefone, data_nascimento, email, hash}) => {
     //gerar id???? const id = usuarios.length+1
@@ -44,8 +46,25 @@ exports.novoEndereco = async ({
   return await endereco.save()
 }
 
+
+
 exports.buscarEnderecoUsuario = async (id) => {
-  return Endereco.findOne({ where:{ usuario_id : id}})  
+  return Endereco.findAll({
+    where: {
+      [Op.and]: [
+        {
+          usuario_id: {
+            [Op.like]: `${id}`,
+          },
+        },
+        {
+          rua: {
+            [Op.not]: null,
+          },
+        },
+      ],
+    },
+  });
 };
 
 exports.getAllUsers = () => Usuario.findAll({include: 'produtos'});

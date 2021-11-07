@@ -20,19 +20,23 @@
         </div>
         <div class="dados-pessoais">
           <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
+          <% enderecos.slice(-1).forEach(endereco => { %>
+          
+      
           <span> 
-            Rua: <% (endereco == null) ? "cadastrar endereço" : endereco.rua %></span>
+            Rua: <%= (endereco == null) ? "cadastrar endereço" : endereco.rua %></span>
             <span>
-            Numero: <% !endereco ? "sem endereço" : endereco.numero %></span>
-            <span>
-            Complemento: <% !endereco ? "sem endereço" : endereco.complemento %></span>
-            <span>
-            Cep: <% !endereco ? "sem endereço" : endereco.cep %></span>
-            <span>
-            Cidade: <% !endereco ? "sem endereço" : endereco.municipio %></span>
-            <span>
-            Estado: <% !endereco ? "sem endereço" : endereco.estado %></span>
-          </div>
+              Numero: <%= !endereco ? "sem endereço" : endereco.numero %></span>
+              <span>
+                Complemento: <%= !endereco ? "sem endereço" : endereco.complemento %></span>
+                <span>
+                  Cep: <%= !endereco ? "sem endereço" : endereco.cep %></span>
+                  <span>
+                    Cidade: <%= !endereco ? "sem endereço" : endereco.municipio %></span>
+                    <span>
+                      Estado: <%= !endereco ? "sem endereço" : endereco.estado %></span>
+                    </div>
+                    <%}) %> 
       <div class="dados-pessoais">
         <p class="titulo"> meus pedidos <i class="fa fa-gift" aria-hidden="true"></i>
         </p>
