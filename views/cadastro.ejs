@@ -37,14 +37,14 @@
       <h3 class="h4 mb-3 font-weight-normal text-center">Cadastre-se</h3>
       <div class="form-group">
         <label for="validationCustom01">Nome Completo</label>
-        <input type="text" name="nome" class="form-control" id="validationCustom01" aria-describedby="emailHelp" required>
+        <input type="text" name="nome" class="form-control" id="validationCustom01" aria-describedby="emailHelp" value="<%= cadastro.nome %>"required>
         <div class="invalid-feedback">
           O campo não pode ser vazio
         </div>
         <label for="numero_documento">CPF ou CNPJ</label>
-        <input type="text" name="numero_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" required>
+        <input type="text" name="numero_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" value="<%= cadastro.numero_documento %>" required>
         <label for="telefone">Telefone</label>
-        <input type="text" name="telefone" class="form-control" id="telefone" aria-describedby="emailHelp">
+        <input type="text" name="telefone" class="form-control" id="telefone" aria-describedby="emailHelp" value="<%= cadastro.telefone %>" maxlength="14">
         <div class="invalid-feedback">
           O campo não pode ser vazio
         </div>
@@ -99,6 +99,6 @@
     })
 })()
 </script>
-
+<script src="/javascripts/cadastro.js"></script>
 </body>
 </html>
