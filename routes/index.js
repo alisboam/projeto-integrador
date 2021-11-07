@@ -59,23 +59,24 @@ router.post("/checkout", async function (req, res) {
   const usuario = req.session.user;
   console.log(JSON.stringify(usuario))
   const carrinho = req.session.carrinho;
-  
-  // console.log(JSON.stringify(endereco))
-  // console.log(JSON.stringify(carrinho))  
-
   const pedido = await checkoutController.fecharPedido(usuario, carrinho);
+  const { session } =req;
   delete session.carrinho;
   
   return res.redirect(`/pedido/status/${pedido.id}`);
 });
 
-
 router.get("/pedido/status/:id", verificarUsuarioLogado, async function (req, res) {
   const idPedido = req.params.id;
   const usuario = req.session.user;
   const pedido = await pedidoController.buscarPedido(idPedido, usuario.id)
-  console.log(pedido)
-  return res.render("status", {pedido})
+  if(typeof(pedido.itens) == "string"){
+    const pedidosItens = JSON.parse(pedido.itens)
+    console.log(pedidosItens, typeof(pedidosItens))
+    return res.render("status", {pedido, pedidosItens})
+  }
+  const pedidosItens = pedido.itens
+  return res.render("status", {pedido, pedidosItens})
 });
 
 //cadastro de usuario
