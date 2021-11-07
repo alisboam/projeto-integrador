@@ -79,6 +79,11 @@ body{
   border-radius: 4px;
 }
 
+.info a{
+  color:#0b0230
+
+}
+
 .img-slider .navigation{
   z-index: 2;
   position: absolute;

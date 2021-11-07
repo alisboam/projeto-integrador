@@ -24,22 +24,24 @@
         <div class="slide active">
           <img src="/images/jogo8.jpg" alt="">
           <div class="info">
-            <h2>Slide 01</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="/images/jogo12.jpg" alt="">
-          <div class="info">
-            <h2>Slide 02</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
+            <% produtos.slice(-1).forEach(produto => { %>
+            <h2><%= produto.nome%></h2>
+            <p><%= produto.descricao %></p>
+          <% })%>
+            </div>
         </div>
         <div class="slide">
           <img src="/images/jogo11.jpg" alt="">
           <div class="info">
-            <h2>Slide 03</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Conheça nossas categorias</h2>
+            <p>Qual jogo você mais gosta? Conheça as <a href="/produtos/categoria?categoria=galera">categorias</a> de nossos jogos.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/jogo10.jpg" alt="">
+          <div class="info">
+            <h2>Diversão garantida</h2>
+            <p>Conheça agora todos os nossos <a href="/produtos">produtos</a>.</p>
           </div>
         </div>
         <div class="navigation">
