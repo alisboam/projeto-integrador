@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="/stylesheets/usuarioInfo.css" />
+    <script src="/javascripts/entrega.js"></script>
     <title>checkm8</title>
   </head>
   <body>
@@ -8,7 +9,7 @@
         <div class="dados-cadastro">
           <p class="titulo">Dados pessoais  <i class="fa fa-user" aria-hidden="true"></i></p>
           <div class="dado1">
-            Nome: <%= user.nome %> 
+            Nome: <%= user.nome %>
         </div>
           <div class="dado1">
           e-mail:<%= user.email %>  
@@ -17,29 +18,40 @@
           Cpf: <%= user.cpf %>  
         </div>
           <div class="dado1">
-          Telefone: <%= user.telefone %> 
+          Telefone: <%= user.telefone %>
         </div>
-      </div> 
+      </div>
       <div class="dados-cadastro">
         <p class="titulo">Endereço de entrega  <i class="fa fa-home" aria-hidden="true"></i></p>
+        <form  method="GET">
+          <label for="inputState">Endereço</label>
+          <select onchange="selectEnder(value)" id="inputState" class="form-control" name="categoria">
+            <option selected>Selecionar Endereço...</option>
+            <% enderecos.forEach(endereco => { %>
+              <option  value= "<%= endereco.id %> ">
+                <%= endereco.rua %>
+              </option>
+              <%}) %>
+              </select>
+          </form>
         <div class="dado1">
-            Rua: <%= endereco.rua %> 
+            Rua:  
           </div>
           <div class="dado1">
-            Numero: <%= endereco.numero %>  
+            Numero:  
           </div>
           <div class="dado1">
-            Complemento: <%= endereco.complemento %>  
+            Complemento:  
           </div>
           <div class="dado1">
-            Cep: <%= endereco.cep %> 
+            Cep:  
           </div>
           <div class="dado1">
-            Cidade: <%= endereco.municipio %> 
+            Cidade:  
           </div>
           <div class="dado1">
-            Estado: <%= endereco.estado %> 
+            Estado:  
           </div>
-        </div> 
+        </div>
       </div>
   </body>
