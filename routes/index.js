@@ -73,13 +73,13 @@ router.post("/checkout", async function (req, res) {
 
 //cadastro de usuario
 router.get("/cadastro", function (req, res, next) {
-  return res.render("cadastro", {errors: null});
+  return res.render("cadastro", {errors: null, cadastro: {}});
 });
 
 router.post("/cadastro", cadastroValidators, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.render("cadastro", { errors });
+    return res.render("cadastro", { errors , cadastro: req.body });
   }
 
   const {
