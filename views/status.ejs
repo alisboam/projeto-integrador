@@ -30,7 +30,9 @@
                 <td>Preço</td>
                 <td>Quantidade</td>
               </tr>
-              <% pedido.itens.forEach(item => { %>
+              <% console.log(typeof(pedido.itens)) %>
+              <% pedidosItens.forEach(item => { %>
+    
                   <tr>
                     <td>
                       <%= item.nome %> 
