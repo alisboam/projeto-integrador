@@ -17,6 +17,11 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.JSON
       },
 
+      pagamento: {
+        allowNull: false,
+        type: DataTypes.JSON
+      },
+
       data: {
         allowNull: false,
         type: DataTypes.DATE
