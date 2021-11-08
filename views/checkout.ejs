@@ -16,6 +16,7 @@
   <header><%- include("./partials/header") %></header>
   <main>
     <div class="container">
+      <form action="/checkout" class="card p-2" method="POST">
       <div class="py-2 text-center">
         <h2>Checkout</h2>
         </div>
@@ -48,34 +49,8 @@
                 currency: 'BRL'}) %></strong>
             </li>
           </ul>
-          <form action="/checkout" class="card p-2" method="POST">
-          <button type="submit" class="btn">Finalizar compra</button></form>
         </div>
-<!-- 
-        <div class="col-md-9 col-lg-8">
-          <h4 class="mb-3">Dados pessoais </h4>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <div class="usuarioInfo">
-                  <div class="dados-cadastro">
-                    <div class="dado1">
-                      Nome: <%= user.nome %> 
-                  </div>
-                    <div class="dado1">
-                    e-mail:<%= user.email %>  
-                  </div>
-                    <div class="dado1">
-                    Cpf: <%= user.cpf %>  
-                  </div>
-                    <div class="dado1">
-                    Telefone: <%= user.telefone %> 
-                  </div>
-                </div> 
-              </div>
-            </div>
-          </div>
-        </div> -->
-
+          
         <div class="col-md-9 col-lg-8">
             <h4 class="mb-3">Pagamento</h4>
               <div class="row g-3">
@@ -88,7 +63,7 @@
         <div class="row gy-3 p-3">
           <div class="col-md-6">
             <label for="cc-name" class="form-label">Nome do Titular do Cartão</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <input type="text" class="form-control" id="cc-name" placeholder="digite seu nome" name="cardName" required>
             <small class="text-muted">Nome completo conforme exibido no cartão</small>
             <div class="invalid-feedback">
               Name on card is required
@@ -97,7 +72,7 @@
 
           <div class="col-md-6">
             <label for="cc-number" class="form-label">Número do Cartão de Crédito</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="1234 5678 9123 4567" required>
+            <input type="text" class="form-control" id="cc-number" placeholder="1234 5678 9123 4567" name="cardNumber" required>
             <div class="invalid-feedback">
               Credit card number is required
             </div>
@@ -105,7 +80,7 @@
 
           <div class="col-md-4">
             <label for="cc-expiration" class="form-label">Data de expiração</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="12/21" required>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="12/21" name="cardDate" required>
             <div class="invalid-feedback">
               Expiration date required
             </div>
@@ -113,18 +88,18 @@
 
           <div class="col-md-4">
             <label for="cc-cvv" class="form-label">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="123" required>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="123" name="cardCVV" required>
             <div class="invalid-feedback">
               Security code required
             </div>
-            
           </div>
         </div>
               </div>
         </div>
       </div>
-    </div>
-  
+    <button type="submit" class="btn">Finalizar compra</button>
+  </form>
+</div>
     </main>
 <footer><%- include("./partials/footer") %></footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
