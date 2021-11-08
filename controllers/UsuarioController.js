@@ -34,7 +34,7 @@ exports.efetuarLogin = async({ senha, email }) => {
   const usuarioLogado = await UsuarioModel.buscarUsuarioPorEmail(email);
 
   if (!usuarioLogado) {
-    throw new Error("Access denied");
+    throw new Error("Falha no login");
   }
 
   const senhaConferida = await bcrypt.compare(senha, usuarioLogado.senha);
