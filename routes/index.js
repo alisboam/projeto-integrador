@@ -59,7 +59,9 @@ router.post("/checkout", async function (req, res) {
   const usuario = req.session.user;
   console.log(JSON.stringify(usuario))
   const carrinho = req.session.carrinho;
-  const pedido = await checkoutController.fecharPedido(usuario, carrinho);
+  const dadosPagamento = req.body;
+  const pedido = await checkoutController.fecharPedido(usuario, carrinho, dadosPagamento);
+  console.log(pedido)
   const { session } =req;
   delete session.carrinho;
   
