@@ -22,6 +22,11 @@ module.exports = {
           type: Sequelize.JSON
         },
 
+        pagamento: {
+          allowNull: false,
+          type: Sequelize.JSON
+        },
+
         data: {
           allowNull: false,
           type: Sequelize.DATE
