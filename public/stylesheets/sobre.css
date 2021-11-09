@@ -7,6 +7,155 @@ body {
   margin: 0;
 }
 
+.aboutUs {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.card {
+  width: 20%;
+  margin: 15px;
+  background: #fff;
+  border: 1px solid #888787;
+}
+
+.img-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sub-title{
+  display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.card .content {
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content{
+  width: 100%;
+}
+.card .content .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.card .content .sub-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 10px 20px 0 20px
+;
+}
+
+.card .content p {
+  text-align: justify;
+  margin: 10px 0;
+}
+button{    
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+.content p {
+  color: #888787;
+}
+
+div.sub-title {
+  color: #fd8415;
+}
+
+button.icons-container {
+  color: #fd8415;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.card .content .btn-cm8 {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.btn-cm8 {
+  display: flex;
+  justify-content: center;
+}
+
+form.buy {
+  display: flex;
+  justify-content: center;
+}
+
+.content .btn-cm8 button {
+  background: #fd8415;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cm8 button:hover {
+  transform: scale(0.9);
+}
+
+#more {
+  background: #fd8415;
+  
+}
+
+div.content-products {
+  max-width: 1200px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  margin: 10px 20px;
+}
+
+#icon {
+  display: none;
+}
+
+
+/* responsividade */
+
+@media (max-width: 768px) {
+
+  .card {
+    width: 60%;
+    margin: 15px;
+  
+  }
+  div.content-products {
+    margin: 10px;
+    width: 100%;
+
+  }
+}
 .termos {
   color: #0b0230;
   display: flex;
