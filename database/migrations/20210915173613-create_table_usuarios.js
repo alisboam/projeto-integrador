@@ -19,7 +19,7 @@ module.exports = {
 
     telefone: {
       allowNull: false,
-      type: Sequelize.STRING(11)
+      type: Sequelize.STRING(15)
     },
 
     senha: {

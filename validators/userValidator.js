@@ -11,7 +11,7 @@ const verificarSeUsuarioCadastrado = body("email").custom((email) => {
 
 const verificarSenhasCorrespondem = body('confirma').custom((confirma, { req }) => {
     if (confirma !== req.body.senha) {
-      throw new Error('Password confirmation does not match password');
+      throw new Error('As senhas não conferem');
     }
 
     // Indicates the success of this synchronous custom validator
